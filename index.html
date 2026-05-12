@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Panorama — Les formes de communication numérique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0D1B2A; --s1:#162333; --s2:#1D2F42; --s3:#243548;
+  --border:rgba(255,255,255,.07); --text:#EDF2F7; --muted:rgba(237,242,247,.5);
+  --green:#2ECC71; --red:#E74C3C; --orange:#F5A623; --blue:#4A9EE0;
+  --sms:#2ECC71; --wa:#25D366; --email:#4A9EE0; --video:#E74C3C; --fb:#1877F2;
+  --font-h:'Sora',sans-serif; --font-b:'DM Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--font-b);background:var(--bg);color:var(--text);display:flex;flex-direction:column}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse at 15% 50%,rgba(46,204,113,.04),transparent 50%),
+             radial-gradient(ellipse at 85% 50%,rgba(24,119,242,.04),transparent 50%)}
+
+#app{position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;max-width:920px;margin:0 auto;width:100%}
+
+/* ── SCREENS ── */
+.screen{display:none;flex:1;flex-direction:column;overflow:hidden}
+.screen.active{display:flex}
+
+/* ── MENU ── */
+#s-menu{align-items:center;justify-content:center;padding:20px;gap:0;text-align:center}
+.menu-chip{font-family:var(--font-h);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.menu-title{font-family:var(--font-h);font-size:clamp(22px,4.5vw,38px);font-weight:900;line-height:1.1;margin-bottom:6px;
+  background:linear-gradient(135deg,#fff 20%,rgba(255,255,255,.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.menu-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7;max-width:420px}
+.tool-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:520px;margin-bottom:20px}
+.tool-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 16px;border-radius:12px;border:none;
+  background:var(--s1);border:1px solid var(--border);
+  color:var(--text);font-family:var(--font-h);font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .18s;
+}
+.tool-btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.2)}
+.tool-btn .tb-ico{font-size:20px}
+.compare-btn{
+  padding:14px 36px;background:linear-gradient(135deg,var(--orange),#E08010);
+  border:none;border-radius:50px;color:white;
+  font-family:var(--font-h);font-size:14px;font-weight:800;
+  cursor:pointer;box-shadow:0 4px 20px rgba(245,166,35,.3);
+  transition:all .15s;
+}
+.compare-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,166,35,.4)}
+
+/* ── TOOL SCREEN ── */
+#s-tool{flex-direction:column;overflow:hidden}
+.tool-header{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 16px;flex-shrink:0;
+}
+.back-btn{background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 12px;color:var(--muted);font-size:12px;cursor:pointer;font-family:var(--font-b);transition:all .15s}
+.back-btn:hover{color:var(--text);border-color:rgba(255,255,255,.2)}
+.tool-header-title{font-family:var(--font-h);font-size:15px;font-weight:800;flex:1}
+.tool-nav-btns{display:flex;gap:4px}
+.tnb{background:var(--s1);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:var(--font-b);color:var(--muted);transition:all .15s}
+.tnb:hover{color:var(--text)}
+.tnb.active{color:white;border-color:transparent}
+
+.tool-body{flex:1;overflow-y:auto;padding:12px 16px 24px}
+
+/* Hero card */
+.hero-card{
+  border-radius:20px;padding:22px 20px 18px;
+  margin-bottom:14px;display:flex;align-items:flex-start;gap:16px;
+}
+.hero-ico{font-size:52px;flex-shrink:0;line-height:1}
+.hero-info{}
+.hero-name{font-family:var(--font-h);font-size:22px;font-weight:900;margin-bottom:4px}
+.hero-tagline{font-size:13px;opacity:.85;line-height:1.5;margin-bottom:10px}
+.hero-devices{display:flex;gap:6px;flex-wrap:wrap}
+.device-tag{
+  font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;
+  background:rgba(255,255,255,.15);color:white;
+}
+
+/* Sections */
+.section-title{font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.pro-con-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pro-col,.con-col{border-radius:12px;padding:12px 14px}
+.pro-col{background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.18)}
+.con-col{background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.18)}
+.pc-title{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.pro-col .pc-title{color:var(--green)}
+.con-col .pc-title{color:var(--red)}
+.pc-item{font-size:12px;line-height:1.5;padding:4px 0;display:flex;gap:6px;align-items:flex-start;color:rgba(237,242,247,.85);border-top:1px solid rgba(255,255,255,.05)}
+.pc-item:first-of-type{border-top:none}
+.pci-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.pro-col .pci-dot{background:var(--green)}
+.con-col .pci-dot{background:var(--red)}
+
+.use-cases{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.use-case{
+  background:var(--s1);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:13px;line-height:1.5;
+}
+.uc-ico{font-size:18px;flex-shrink:0;margin-top:1px}
+.uc-text{}
+.uc-title{font-weight:700;margin-bottom:2px}
+.uc-desc{font-size:12px;color:var(--muted)}
+
+.tip-box{
+  background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);
+  border-radius:10px;padding:12px 14px;
+  font-size:12px;line-height:1.6;color:rgba(237,242,247,.85);
+}
+.tip-box::before{content:'💡  ';font-size:14px}
+.tip-box strong{color:white}
+
+/* ── COMPARE TABLE ── */
+#s-compare{flex-direction:column;overflow:hidden}
+.compare-header{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 16px;flex-shrink:0;border-bottom:1px solid var(--border);
+}
+.compare-body{flex:1;overflow:auto;padding:12px 16px 24px}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0 6px;min-width:520px}
+.compare-table th{
+  padding:8px 12px;font-family:var(--font-h);font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;
+}
+.compare-table td{
+  padding:10px 12px;font-size:12px;line-height:1.5;
+  background:var(--s1);border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);vertical-align:top;
+}
+.compare-table td:first-child{border-left:1px solid var(--border);border-radius:10px 0 0 10px}
+.compare-table td:last-child{border-right:1px solid var(--border);border-radius:0 10px 10px 0}
+.ct-tool{display:flex;align-items:center;gap:8px;font-family:var(--font-h);font-size:13px;font-weight:800}
+.ct-ico{font-size:22px}
+.ct-plus{font-size:11px;color:var(--green)}
+.ct-minus{font-size:11px;color:var(--red)}
+.ct-devices{display:flex;gap:4px;flex-wrap:wrap}
+.ct-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(255,255,255,.1);color:var(--muted)}
+
+/* Legend */
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- MENU -->
+  <div id="s-menu" class="screen active">
+    <div class="menu-chip">Atelier 2 — Panorama</div>
+    <div class="menu-title">Les 5 formes de<br>communication numérique</div>
+    <div class="menu-sub">Explorez chaque outil en détail, ou consultez le tableau comparatif pour voir les différences en un coup d'œil.</div>
+    <div class="tool-nav" id="tool-nav"></div>
+    <button class="compare-btn" onclick="showCompare()">📊 Tableau comparatif</button>
+  </div>
+
+  <!-- TOOL DETAIL -->
+  <div id="s-tool" class="screen">
+    <div class="tool-header">
+      <button class="back-btn" onclick="showMenu()">← Retour</button>
+      <div class="tool-header-title" id="tool-header-title"></div>
+      <div class="tool-nav-btns" id="tool-nav-btns"></div>
+    </div>
+    <div class="tool-body" id="tool-body"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="s-compare" class="screen">
+    <div class="compare-header">
+      <button class="back-btn" onclick="showMenu()">← Retour</button>
+      <span style="font-family:var(--font-h);font-size:15px;font-weight:800">Tableau comparatif</span>
+    </div>
+    <div class="compare-body">
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Avantage</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Limite</div>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Outil</th>
+            <th>Idéal pour</th>
+            <th>Avantages clés</th>
+            <th>Limites</th>
+            <th>Appareils</th>
+          </tr>
+        </thead>
+        <tbody id="compare-tbody"></tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+const TOOLS = [
+  {
+    id:'sms', ico:'💬', name:'SMS', color:'#2ECC71',
+    tagline:'Le message texte classique — simple, universel, sans internet.',
+    devices:['📱 Android','📱 iPhone','📋 Tablette'],
+    pros:[
+      'Fonctionne sans Wi-Fi ni internet',
+      'Tous les téléphones peuvent l\'envoyer et le recevoir',
+      'Pas besoin de compte ni d\'appli spéciale',
+      'Très simple à utiliser',
+    ],
+    cons:[
+      'Payant selon forfait (souvent limité)',
+      'Photo/vidéo = MMS, plus cher',
+      'Pas de confirmation de lecture dans tous les cas',
+      'De moins en moins utilisé — remplacé par la messagerie instantanée (WhatsApp…)',
+    ],
+    usecases:[
+      {ico:'💬', title:'Message court à une personne précise', desc:'"J\'arrive dans 10 minutes", "Bien arrivé !", "Je suis en bas de chez toi"'},
+      {ico:'📱', title:'Contacter quelqu\'un sans smartphone', desc:'Idéal pour joindre une personne qui n\'a pas WhatsApp ou internet'},
+      {ico:'🔔', title:'Rappels et confirmations automatiques', desc:'Rappels de rendez-vous médicaux, codes de validation reçus par SMS'},
+    ],
+    tip:'Le SMS est parfait comme <strong>filet de sécurité</strong> — même sans Wi-Fi, même avec une petite connexion, il passe presque toujours.',
+    compareIdeal:'Messages très courts, contacts sans smartphone',
+    comparePlus:'Sans internet, universel',
+    compareMoins:'Payant, en déclin face à WhatsApp',
+    compareDevices:['📱 Android','📱 iPhone'],
+  },
+  {
+    id:'wa', ico:'📱', name:'WhatsApp (messagerie instantanée)', color:'#25D366',
+    tagline:'La messagerie instantanée la plus utilisée en France — gratuite, complète.',
+    devices:['📱 Android','📱 iPhone','🖥️ PC Windows','💻 Mac'],
+    pros:[
+      'Gratuit avec le Wi-Fi (illimité)',
+      'Photos, vidéos, documents inclus',
+      'Messages vocaux — parler sans écrire',
+      'Groupes familiaux ou amicaux',
+      'Appels vidéo intégrés (jusqu\'à 8 personnes)',
+      'Confirmation de lecture (✓✓ bleus)',
+    ],
+    cons:[
+      'Nécessite un compte (numéro de téléphone)',
+      'L\'autre personne doit aussi avoir WhatsApp',
+      'Consomme des données mobiles (hors Wi-Fi)',
+      'Nécessite une connexion internet',
+    ],
+    usecases:[
+      {ico:'💬', title:'Envoyer des messages', desc:'Écrire à un proche, répondre, avoir une vraie conversation textuelle — instantané et gratuit'},
+      {ico:'👨‍👩‍👧', title:'Groupe famille', desc:'Partager des nouvelles, des photos, des événements avec toute la famille en même temps'},
+      {ico:'🎤', title:'Message vocal', desc:'Pratique quand on écrit lentement — on parle comme au téléphone, l\'autre écoute quand il veut'},
+      {ico:'📸', title:'Partager des photos', desc:'Envoyer des photos directement depuis sa galerie, sans frais et en haute qualité'},
+    ],
+    tip:'WhatsApp est souvent la <strong>première messagerie à maîtriser</strong> pour les seniors — le groupe famille est une excellente motivation pour l\'apprendre.',
+    compareIdeal:'Messages, famille, groupes, photos',
+    comparePlus:'Gratuit, vocal, photos, groupes',
+    compareMoins:'Compte requis, internet nécessaire',
+    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+  },
+  {
+    id:'email', ico:'📧', name:'Email', color:'#4A9EE0',
+    tagline:'Le courrier électronique — pour les démarches officielles et les documents.',
+    devices:['📱 Android','📱 iPhone','📋 Tablette','🖥️ PC Windows','💻 Mac'],
+    pros:[
+      'Universel — tout le monde a une adresse e-mail',
+      'Pièces jointes : documents, photos, PDF',
+      'Trace écrite conservée dans la boîte mail',
+      'Gratuit',
+      'Fonctionne sur tous les appareils',
+    ],
+    cons:[
+      'Moins instantané — réponse en heures ou jours',
+      'Risque de spam (messages indésirables)',
+      'Plus formel à rédiger',
+      'Nécessite une adresse e-mail valide',
+    ],
+    usecases:[
+      {ico:'🏛️', title:'Contacter une administration', desc:'Mairie, CAF, Sécurité Sociale, impôts — ils répondent tous par email'},
+      {ico:'🩺', title:'Envoyer un document médical', desc:'Ordonnance, résultats d\'analyse, attestation à votre médecin'},
+      {ico:'🏠', title:'Démarches immobilières', desc:'Envoyer une attestation d\'assurance, un justificatif de domicile'},
+    ],
+    tip:'L\'email est incontournable pour <strong>toutes les démarches officielles</strong>. Une bonne adresse Gmail ou Orange est comme une boîte aux lettres toujours accessible.',
+    compareIdeal:'Administrations, démarches, documents',
+    comparePlus:'Universel, pièces jointes, trace écrite',
+    compareMoins:'Lent, spam, plus formel',
+    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+  },
+  {
+    id:'video', ico:'📹', name:'Appel vidéo', color:'#E74C3C',
+    tagline:'Voir et entendre ses proches à distance — comme être dans la même pièce.',
+    devices:['📱 Android','📱 iPhone','📋 Tablette','🖥️ PC Windows','💻 Mac'],
+    pros:[
+      'Gratuit avec le Wi-Fi partout dans le monde',
+      'On voit le visage de l\'autre — beaucoup plus chaleureux',
+      'Partage d\'écran possible (Google Meet)',
+      'Plusieurs personnes en même temps',
+      'Caméra et micro contrôlables séparément',
+    ],
+    cons:[
+      'Nécessite une bonne connexion internet',
+      'Peut intimider au début',
+      'Nécessite une caméra (frontale sur smartphone)',
+      'L\'autre doit aussi avoir l\'appli ou le lien',
+    ],
+    usecases:[
+      {ico:'🌍', title:'Famille à distance', desc:'Petits-enfants en France ou à l\'étranger — voir leur visage régulièrement'},
+      {ico:'👨‍⚕️', title:'Téléconsultation médicale', desc:'Consulter son médecin depuis chez soi via Doctolib ou un lien Meet'},
+      {ico:'🎂', title:'Partager un moment spécial', desc:'Anniversaire, Noël, événement familial — être présent à distance'},
+    ],
+    tip:'Commencez par <strong>WhatsApp vidéo</strong> — c\'est l\'appli déjà installée et la plus simple. Google Meet est utile pour les groupes plus larges ou la téléconsultation.',
+    compareIdeal:'Famille éloignée, téléconsultation',
+    comparePlus:'Gratuit, voir le visage, monde entier',
+    compareMoins:'Connexion requise, caméra nécessaire',
+    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+  },
+  {
+    id:'fb', ico:'👥', name:'Facebook / Réseau social', color:'#1877F2',
+    tagline:'Le réseau social — pour rester connecté avec un cercle plus large.',
+    devices:['📱 Android','📱 iPhone','🖥️ PC Windows','💻 Mac'],
+    pros:[
+      'Retrouver d\'anciens amis et connaissances',
+      'Partager des nouvelles avec un cercle élargi',
+      'Groupes thématiques (jardinage, cuisine, voyage…)',
+      'Messenger = messagerie intégrée, gratuite',
+      'Événements locaux, actualités',
+    ],
+    cons:[
+      'Vie privée plus exposée par défaut',
+      'Publicités fréquentes dans le fil',
+      'Flux d\'informations parfois distrayant ou anxiogène',
+      'Nécessite de bien paramétrer la confidentialité',
+      'Ne pas créer de compte sans accompagnement',
+    ],
+    usecases:[
+      {ico:'🎓', title:'Retrouver d\'anciens amis', desc:'Camarades d\'école, anciens collègues, voisins d\'autrefois'},
+      {ico:'🌻', title:'Rejoindre un groupe passion', desc:'Club de marche, tricot, jardinage, recettes — des milliers de groupes existent'},
+      {ico:'📰', title:'Suivre les actualités locales', desc:'Événements de sa commune, associations, groupes de voisinage'},
+    ],
+    tip:'Facebook est <strong>à aborder avec prudence</strong> — bien paramétrer la confidentialité est indispensable avant de l\'utiliser. L\'atelier 3 sur Internet au quotidien sera l\'occasion d\'y revenir en détail.',
+    compareIdeal:'Communautés, anciens amis, actualités',
+    comparePlus:'Réseau large, groupes, événements',
+    compareMoins:'Vie privée, publicités, attention requise',
+    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+  },
+];
+
+let currentTool = 0;
+
+function showMenu(){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById('s-menu').classList.add('active'); }
+function showCompare(){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById('s-compare').classList.add('active'); renderCompare(); }
+function showScreen(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
+
+function showTool(idx){
+  currentTool = idx;
+  const t = TOOLS[idx];
+
+  // Header
+  document.getElementById('tool-header-title').textContent = `${t.ico} ${t.name}`;
+
+  // Nav buttons
+  const nav = document.getElementById('tool-nav-btns');
+  nav.innerHTML = '';
+  TOOLS.forEach((tt,i)=>{
+    const b = document.createElement('button');
+    b.className = 'tnb' + (i===idx?' active':'');
+    b.textContent = tt.ico;
+    b.style.borderColor = i===idx ? tt.color : '';
+    b.style.background = i===idx ? tt.color+'22' : '';
+    b.onclick = () => showTool(i);
+    nav.appendChild(b);
+  });
+
+  // Body
+  const body = document.getElementById('tool-body');
+  body.innerHTML = '';
+  body.scrollTop = 0;
+
+  // Hero
+  const hero = document.createElement('div');
+  hero.className = 'hero-card';
+  hero.style.background = `linear-gradient(135deg, ${t.color}22, ${t.color}11)`;
+  hero.style.border = `1px solid ${t.color}44`;
+  hero.innerHTML = `
+    <div class="hero-ico">${t.ico}</div>
+    <div class="hero-info">
+      <div class="hero-name" style="color:${t.color}">${t.name}</div>
+      <div class="hero-tagline">${t.tagline}</div>
+      <div class="hero-devices">${t.devices.map(d=>`<span class="device-tag">${d}</span>`).join('')}</div>
+    </div>`;
+  body.appendChild(hero);
+
+  // Pro/con
+  const pcGrid = document.createElement('div');
+  pcGrid.innerHTML = `<div class="section-title">✅ Avantages &amp; ⚠️ Limites</div>`;
+  const grid = document.createElement('div');
+  grid.className = 'pro-con-grid';
+  grid.innerHTML = `
+    <div class="pro-col">
+      <div class="pc-title">✅ Points +</div>
+      ${t.pros.map(p=>`<div class="pc-item"><div class="pci-dot"></div><span>${p}</span></div>`).join('')}
+    </div>
+    <div class="con-col">
+      <div class="pc-title">⚠️ Points −</div>
+      ${t.cons.map(c=>`<div class="pc-item"><div class="pci-dot"></div><span>${c}</span></div>`).join('')}
+    </div>`;
+  body.appendChild(pcGrid);
+  body.appendChild(grid);
+
+  // Use cases
+  const ucTitle = document.createElement('div');
+  ucTitle.className = 'section-title';
+  ucTitle.style.marginTop = '14px';
+  ucTitle.innerHTML = '🎯 Quand l\'utiliser ?';
+  body.appendChild(ucTitle);
+
+  const ucs = document.createElement('div');
+  ucs.className = 'use-cases';
+  ucs.innerHTML = t.usecases.map(u=>`
+    <div class="use-case">
+      <div class="uc-ico">${u.ico}</div>
+      <div class="uc-text"><div class="uc-title">${u.title}</div><div class="uc-desc">${u.desc}</div></div>
+    </div>`).join('');
+  body.appendChild(ucs);
+
+  // Tip
+  const tip = document.createElement('div');
+  tip.className = 'tip-box';
+  tip.innerHTML = t.tip;
+  body.appendChild(tip);
+
+  showScreen('s-tool');
+}
+
+function renderCompare(){
+  const tbody = document.getElementById('compare-tbody');
+  tbody.innerHTML = '';
+  TOOLS.forEach(t=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><div class="ct-tool"><span class="ct-ico">${t.ico}</span><span style="color:${t.color}">${t.name}</span></div></td>
+      <td style="color:rgba(237,242,247,.85)">${t.compareIdeal}</td>
+      <td class="ct-plus">${t.comparePlus}</td>
+      <td class="ct-minus">${t.compareMoins}</td>
+      <td><div class="ct-devices">${t.compareDevices.map(d=>`<span class="ct-tag">${d}</span>`).join('')}</div></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Build tool nav on menu
+(function initMenu(){
+  const nav = document.getElementById('tool-nav');
+  TOOLS.forEach((t,i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'tool-btn';
+    btn.style.borderColor = t.color+'44';
+    btn.innerHTML = `<span class="tb-ico">${t.ico}</span><span>${t.name}</span>`;
+    btn.onclick = () => showTool(i);
+    nav.appendChild(btn);
+  });
+})();
+</script>
+</body>
+</html>
