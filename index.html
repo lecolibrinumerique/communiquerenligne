@@ -8,11 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0D1B2A; --s1:#162333; --s2:#1D2F42; --s3:#243548;
-  --border:rgba(255,255,255,.07); --text:#EDF2F7; --muted:rgba(237,242,247,.5);
-  --green:#2ECC71; --red:#E74C3C; --orange:#F5A623; --blue:#4A9EE0;
-  --sms:#2ECC71; --wa:#25D366; --email:#4A9EE0; --video:#E74C3C; --fb:#1877F2;
-  --font-h:'Sora',sans-serif; --font-b:'DM Sans',sans-serif;
+  --bg:#0D1B2A;--s1:#162333;--s2:#1D2F42;--s3:#243548;
+  --border:rgba(255,255,255,.07);--text:#EDF2F7;--muted:rgba(237,242,247,.5);
+  --green:#2ECC71;--red:#E74C3C;--orange:#F5A623;--blue:#4A9EE0;
+  --font-h:'Sora',sans-serif;--font-b:'DM Sans',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
@@ -20,44 +19,25 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--text);display:fl
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:radial-gradient(ellipse at 15% 50%,rgba(46,204,113,.04),transparent 50%),
              radial-gradient(ellipse at 85% 50%,rgba(24,119,242,.04),transparent 50%)}
-
 #app{position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;max-width:920px;margin:0 auto;width:100%}
-
-/* ── SCREENS ── */
 .screen{display:none;flex:1;flex-direction:column;overflow:hidden}
 .screen.active{display:flex}
 
 /* ── MENU ── */
 #s-menu{align-items:center;justify-content:center;padding:20px;gap:0;text-align:center}
 .menu-chip{font-family:var(--font-h);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.menu-title{font-family:var(--font-h);font-size:clamp(22px,4.5vw,38px);font-weight:900;line-height:1.1;margin-bottom:6px;
-  background:linear-gradient(135deg,#fff 20%,rgba(255,255,255,.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.menu-title{font-family:var(--font-h);font-size:clamp(22px,4.5vw,38px);font-weight:900;line-height:1.1;margin-bottom:6px;background:linear-gradient(135deg,#fff 20%,rgba(255,255,255,.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .menu-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.7;max-width:420px}
 .tool-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:520px;margin-bottom:20px}
-.tool-btn{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 16px;border-radius:12px;border:none;
-  background:var(--s1);border:1px solid var(--border);
-  color:var(--text);font-family:var(--font-h);font-size:13px;font-weight:700;
-  cursor:pointer;transition:all .18s;
-}
+.tool-btn{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:none;background:var(--s1);border:1px solid var(--border);color:var(--text);font-family:var(--font-h);font-size:13px;font-weight:700;cursor:pointer;transition:all .18s}
 .tool-btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.2)}
 .tool-btn .tb-ico{font-size:20px}
-.compare-btn{
-  padding:14px 36px;background:linear-gradient(135deg,var(--orange),#E08010);
-  border:none;border-radius:50px;color:white;
-  font-family:var(--font-h);font-size:14px;font-weight:800;
-  cursor:pointer;box-shadow:0 4px 20px rgba(245,166,35,.3);
-  transition:all .15s;
-}
-.compare-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,166,35,.4)}
+.compare-btn{padding:14px 36px;background:linear-gradient(135deg,var(--orange),#E08010);border:none;border-radius:50px;color:white;font-family:var(--font-h);font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 4px 20px rgba(245,166,35,.3);transition:all .15s}
+.compare-btn:hover{transform:translateY(-2px)}
 
 /* ── TOOL SCREEN ── */
 #s-tool{flex-direction:column;overflow:hidden}
-.tool-header{
-  display:flex;align-items:center;gap:12px;
-  padding:10px 16px;flex-shrink:0;
-}
+.tool-header{display:flex;align-items:center;gap:12px;padding:10px 16px;flex-shrink:0}
 .back-btn{background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 12px;color:var(--muted);font-size:12px;cursor:pointer;font-family:var(--font-b);transition:all .15s}
 .back-btn:hover{color:var(--text);border-color:rgba(255,255,255,.2)}
 .tool-header-title{font-family:var(--font-h);font-size:15px;font-weight:800;flex:1}
@@ -65,25 +45,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .tnb{background:var(--s1);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:var(--font-b);color:var(--muted);transition:all .15s}
 .tnb:hover{color:var(--text)}
 .tnb.active{color:white;border-color:transparent}
-
 .tool-body{flex:1;overflow-y:auto;padding:12px 16px 24px}
-
-/* Hero card */
-.hero-card{
-  border-radius:20px;padding:22px 20px 18px;
-  margin-bottom:14px;display:flex;align-items:flex-start;gap:16px;
-}
+.hero-card{border-radius:20px;padding:22px 20px 18px;margin-bottom:14px;display:flex;align-items:flex-start;gap:16px}
 .hero-ico{font-size:52px;flex-shrink:0;line-height:1}
-.hero-info{}
 .hero-name{font-family:var(--font-h);font-size:22px;font-weight:900;margin-bottom:4px}
 .hero-tagline{font-size:13px;opacity:.85;line-height:1.5;margin-bottom:10px}
 .hero-devices{display:flex;gap:6px;flex-wrap:wrap}
-.device-tag{
-  font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;
-  background:rgba(255,255,255,.15);color:white;
-}
-
-/* Sections */
+.device-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.15);color:white}
 .section-title{font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .pro-con-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .pro-col,.con-col{border-radius:12px;padding:12px 14px}
@@ -97,44 +65,240 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .pci-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .pro-col .pci-dot{background:var(--green)}
 .con-col .pci-dot{background:var(--red)}
-
 .use-cases{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.use-case{
-  background:var(--s1);border:1px solid var(--border);
-  border-radius:10px;padding:10px 12px;
-  display:flex;gap:10px;align-items:flex-start;
-  font-size:13px;line-height:1.5;
-}
+.use-case{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5}
 .uc-ico{font-size:18px;flex-shrink:0;margin-top:1px}
-.uc-text{}
 .uc-title{font-weight:700;margin-bottom:2px}
 .uc-desc{font-size:12px;color:var(--muted)}
-
-.tip-box{
-  background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);
-  border-radius:10px;padding:12px 14px;
-  font-size:12px;line-height:1.6;color:rgba(237,242,247,.85);
-}
+.tip-box{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:12px 14px;font-size:12px;line-height:1.6;color:rgba(237,242,247,.85);margin-bottom:14px}
 .tip-box::before{content:'💡  ';font-size:14px}
 .tip-box strong{color:white}
 
+/* ── SIMULATION WRAPPER ── */
+.sim-section{margin-top:4px;margin-bottom:8px}
+.sim-section-title{font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.sim-outer{display:flex;align-items:flex-start;justify-content:center;gap:24px;flex-wrap:wrap;width:100%}
+.sim-outer.single{justify-content:center}
+.sim-label{font-size:12px;font-weight:700;text-align:center;margin-top:10px;letter-spacing:.08em;text-transform:uppercase}
+
+/* ── PHONE SHELL ── */
+.phone-shell{
+  position:relative;background:#111;
+  border-radius:36px;
+  box-shadow:0 0 0 1.5px #333,0 12px 40px rgba(0,0,0,.6);
+  flex-shrink:0;overflow:visible;
+}
+.phone-screen{
+  position:absolute;overflow:hidden;
+  background:white;border-radius:inherit;
+}
+.dyn-island{
+  position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  background:#111;border-radius:12px;z-index:10;pointer-events:none;
+}
+.punch{
+  position:absolute;top:11px;left:50%;transform:translateX(-50%);
+  background:#111;border-radius:50%;z-index:10;pointer-events:none;
+}
+.home-bar-s{
+  position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
+  background:#444;border-radius:2px;z-index:10;pointer-events:none;
+}
+
+/* ── PC SHELL ── */
+.pc-shell{flex-shrink:0;display:flex;flex-direction:column;align-items:center}
+.pc-lid{border-radius:10px 10px 0 0;overflow:hidden;border:2px solid #555}
+.pc-screen-inner{background:white;overflow:hidden}
+.pc-base{background:#3a3a3a;border-radius:0 0 6px 6px;border:2px solid #555;border-top:none;display:flex;align-items:center;justify-content:center}
+
+/* ── SMS SIMULATION ── */
+.sms-ui{display:flex;flex-direction:column;height:100%;background:#f2f2f7;font-family:var(--font-b)}
+.sms-navbar{
+  background:white;padding:14px 16px 10px;border-bottom:1px solid #e8e8e8;flex-shrink:0;
+  display:flex;align-items:center;gap:8px;
+}
+.sms-back{color:#007AFF;font-size:16px;font-weight:600}
+.sms-contact{text-align:center;flex:1}
+.sms-contact-name{font-size:18px;font-weight:700;color:#111}
+.sms-contact-sub{font-size:13px;color:#888}
+.sms-thread{flex:1;overflow-y:auto;padding:12px 12px 6px;display:flex;flex-direction:column;gap:8px}
+.sms-bubble-wrap{display:flex;flex-direction:column}
+.sms-bubble-wrap.out{align-items:flex-end}
+.sms-bubble-wrap.in{align-items:flex-start}
+.sms-bubble{
+  max-width:78%;padding:11px 16px;font-size:16px;line-height:1.4;word-break:break-word;
+  border-radius:20px;
+}
+.sms-bubble.out{background:#007AFF;color:white;border-radius:20px 20px 4px 20px}
+.sms-bubble.in{background:white;color:#111;border-radius:20px 20px 20px 4px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.sms-time{font-size:12px;color:#999;margin-top:3px;padding:0 6px}
+.sms-input-row{
+  background:white;border-top:1px solid #e8e8e8;padding:10px 12px;
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
+}
+.sms-input-field{
+  flex:1;background:#f2f2f7;border-radius:20px;padding:10px 14px;
+  font-size:15px;color:#333;font-family:var(--font-b);border:none;outline:none;
+}
+.sms-send-btn{
+  width:38px;height:38px;background:#007AFF;border-radius:50%;border:none;
+  color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.sms-annot{
+  background:rgba(0,122,255,.08);border:1px solid rgba(0,122,255,.2);
+  border-radius:10px;padding:8px 12px;margin:4px 0;
+  font-size:13px;color:#005ec4;display:flex;align-items:center;gap:6px;
+}
+
+/* ── WHATSAPP SIMULATION ── */
+.wa-ui{display:flex;flex-direction:column;height:100%;background:#ECE5DD;font-family:var(--font-b)}
+.wa-navbar{
+  background:#128C7E;padding:12px 14px;flex-shrink:0;
+  display:flex;align-items:center;gap:10px;
+}
+.wa-back{color:white;font-size:16px;opacity:.9}
+.wa-avatar{width:38px;height:38px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:white;flex-shrink:0}
+.wa-contact-info{flex:1}
+.wa-contact-name{font-size:17px;font-weight:700;color:white}
+.wa-contact-status{font-size:12px;color:rgba(255,255,255,.75)}
+.wa-icons{display:flex;gap:16px;color:white;font-size:20px;opacity:.85}
+.wa-thread{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.wa-msg-wrap{display:flex;flex-direction:column}
+.wa-msg-wrap.out{align-items:flex-end}
+.wa-msg-wrap.in{align-items:flex-start}
+.wa-bubble{
+  max-width:78%;padding:10px 14px;font-size:15px;line-height:1.4;
+  border-radius:10px;position:relative;
+}
+.wa-bubble.out{background:#DCF8C6;color:#111;border-radius:10px 10px 0 10px}
+.wa-bubble.in{background:white;color:#111;border-radius:10px 10px 10px 0;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.wa-bubble-meta{display:flex;align-items:center;gap:5px;justify-content:flex-end;margin-top:4px}
+.wa-bubble-time{font-size:11px;color:#999}
+.wa-bubble-ticks{font-size:13px;color:#4FC3F7}
+.wa-voice-bubble{
+  background:#DCF8C6;border-radius:10px 10px 0 10px;padding:10px 14px;
+  display:flex;align-items:center;gap:10px;min-width:180px;
+}
+.wa-voice-play{width:38px;height:38px;background:#128C7E;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:16px;cursor:pointer;flex-shrink:0}
+.wa-voice-wave{flex:1;height:24px;display:flex;align-items:center;gap:2px}
+.wa-voice-bar{width:4px;border-radius:2px;background:#999}
+.wa-voice-dur{font-size:13px;color:#666;flex-shrink:0}
+.wa-input-row{
+  background:white;padding:10px;border-top:1px solid #e8e8e8;
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
+}
+.wa-input-field{flex:1;background:#f2f2f7;border-radius:24px;padding:10px 14px;font-size:15px;color:#333;border:none;outline:none;font-family:var(--font-b)}
+.wa-mic-btn{width:40px;height:40px;background:#128C7E;border-radius:50%;border:none;color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-attach{color:#666;font-size:22px;cursor:pointer;flex-shrink:0}
+.wa-annot{background:rgba(18,140,126,.1);border:1px solid rgba(18,140,126,.25);border-radius:10px;padding:8px 12px;margin:4px 0;font-size:13px;color:#0a5a52;display:flex;align-items:center;gap:6px}
+
+/* ── GMAIL SIMULATION ── */
+.gmail-ui{display:flex;flex-direction:column;height:100%;background:#f6f8fc;font-family:var(--font-b)}
+.gmail-topbar{background:#1a73e8;padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.gmail-back{color:white;font-size:18px}
+.gmail-title{color:white;font-size:17px;font-weight:700;flex:1}
+.gmail-icons{display:flex;gap:12px;color:white;font-size:20px;opacity:.85}
+.gmail-compose-btn{
+  position:absolute;bottom:14px;right:14px;
+  background:#1a73e8;color:white;border:none;border-radius:20px;
+  padding:12px 20px;font-size:15px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(26,115,232,.4);
+  font-family:var(--font-b);
+}
+.gmail-list{flex:1;overflow-y:auto;background:white}
+.gmail-item{
+  display:flex;align-items:flex-start;gap:12px;padding:16px 14px;
+  border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;
+  position:relative;
+}
+.gmail-item:hover{background:#f8f8f8}
+.gmail-item.unread .gmail-item-sender{font-weight:800;color:#111}
+.gmail-item.unread .gmail-item-subject{font-weight:700;color:#111}
+.gmail-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:white;flex-shrink:0}
+.gmail-item-body{flex:1;min-width:0}
+.gmail-item-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.gmail-item-sender{font-size:15px;font-weight:600;color:#333}
+.gmail-item-time{font-size:13px;color:#888;flex-shrink:0}
+.gmail-item-subject{font-size:14px;color:#333;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gmail-item-preview{font-size:13px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gmail-unread-dot{width:10px;height:10px;border-radius:50%;background:#1a73e8;position:absolute;left:4px;top:50%;transform:translateY(-50%);flex-shrink:0}
+.gmail-compose{position:absolute;inset:0;background:#fff;z-index:20;display:none;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.gmail-compose.open{display:flex}
+.gmail-compose-header{background:#404040;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.gmail-compose-title{color:white;font-size:16px;font-weight:700}
+.gmail-compose-close{background:transparent;border:none;color:white;font-size:22px;cursor:pointer}
+.gmail-compose-field{border-bottom:1px solid #e0e0e0;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.gmail-compose-label{font-size:15px;color:#666;width:40px;flex-shrink:0}
+.gmail-compose-input{flex:1;border:none;outline:none;font-size:16px;font-family:var(--font-b);color:#333}
+.gmail-compose-body{flex:1;padding:14px 16px;font-size:16px;color:#333;line-height:1.6}
+.gmail-compose-footer{border-top:1px solid #e0e0e0;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.gmail-send-btn{background:#1a73e8;color:white;border:none;border-radius:6px;padding:11px 22px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font-b)}
+.gmail-attach-btn{background:transparent;border:none;font-size:22px;cursor:pointer;color:#666}
+.gmail-annot{background:rgba(26,115,232,.08);border:1px solid rgba(26,115,232,.2);border-radius:10px;padding:9px 14px;margin:8px 12px;font-size:13px;color:#1a73e8;display:flex;align-items:center;gap:6px}
+
+/* ── VIDEO CALL SIMULATION ── */
+.video-ui{display:flex;flex-direction:column;height:100%;background:#1a1a2e;position:relative;font-family:var(--font-b)}
+.video-remote{flex:1;background:linear-gradient(135deg,#2d3561,#1a1a2e);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;position:relative}
+.video-remote-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-size:44px}
+.video-remote-name{color:white;font-size:20px;font-weight:700}
+.video-remote-status{color:rgba(255,255,255,.6);font-size:15px}
+.video-self-preview{
+  position:absolute;bottom:80px;right:14px;width:80px;height:114px;
+  border-radius:14px;background:linear-gradient(135deg,#1a3a6b,#0d2040);
+  border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;
+  font-size:28px;overflow:hidden;
+}
+.video-topbar{position:absolute;top:0;left:0;right:0;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent)}
+.video-duration{color:white;font-size:17px;font-weight:700}
+.video-enc{color:rgba(255,255,255,.7);font-size:13px;display:flex;align-items:center;gap:4px}
+.video-controls{background:rgba(0,0,0,.6);padding:16px 12px;display:flex;justify-content:space-around;align-items:center;flex-shrink:0}
+.vc-btn{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer}
+.vc-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;transition:all .15s}
+.vc-icon:active{transform:scale(.9)}
+.vc-lbl{font-size:13px;color:rgba(255,255,255,.7);font-weight:600}
+.vc-icon.red{background:#E74C3C}
+.vc-icon.gray{background:rgba(255,255,255,.15)}
+.vc-icon.off{background:rgba(255,255,255,.08);opacity:.5}
+.video-annot-wrap{position:absolute;bottom:80px;left:0;right:0;padding:0 14px;display:flex;flex-direction:column;gap:5px}
+.video-annot{background:rgba(231,76,60,.15);border:1px solid rgba(231,76,60,.3);border-radius:10px;padding:8px 12px;font-size:13px;color:#ff9090;display:flex;align-items:center;gap:6px}
+
+/* ── OUTLOOK SIMULATION ── */
+.outlook-ui{display:flex;flex-direction:column;height:100%;background:#f3f2f1;font-family:var(--font-b)}
+.outlook-topbar{background:#0078d4;padding:12px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.outlook-title{color:white;font-size:15px;font-weight:700;flex:1}
+.outlook-icons{display:flex;gap:10px;color:white;font-size:16px;opacity:.9}
+.outlook-compose{background:#0078d4;color:white;border:none;border-radius:4px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:var(--font-b);flex-shrink:0}
+.outlook-list{flex:1;overflow-y:auto;background:white}
+.outlook-item{display:flex;align-items:flex-start;gap:10px;padding:14px 12px;border-bottom:1px solid #edebe9;cursor:pointer;transition:background .1s}
+.outlook-item:hover{background:#f8f8f8}
+.outlook-item.unread{border-left:4px solid #0078d4}
+.outlook-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:white;flex-shrink:0}
+.outlook-body{flex:1;min-width:0}
+.outlook-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:3px}
+.outlook-sender{font-size:15px;font-weight:700;color:#323130}
+.outlook-time{font-size:13px;color:#605e5c}
+.outlook-subject{font-size:14px;color:#323130;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.outlook-preview{font-size:12px;color:#605e5c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.outlook-compose-view{position:absolute;inset:0;background:white;z-index:20;display:none;flex-direction:column}
+.outlook-compose-view.open{display:flex}
+.outlook-compose-topbar{background:#0078d4;padding:12px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.outlook-compose-field{border-bottom:1px solid #edebe9;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.outlook-compose-lbl{font-size:14px;color:#605e5c;width:38px;flex-shrink:0}
+.outlook-compose-inp{flex:1;border:none;outline:none;font-size:15px;font-family:var(--font-b);color:#323130}
+.outlook-compose-body{flex:1;padding:14px;font-size:15px;color:#323130;line-height:1.6;overflow-y:auto}
+.outlook-compose-footer{border-top:1px solid #edebe9;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.outlook-send-btn{background:#0078d4;color:white;border:none;border-radius:4px;padding:9px 18px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-b)}
+.outlook-toolbar{display:flex;gap:6px;font-size:18px;color:#605e5c}
+.ol-annot{background:rgba(0,120,212,.08);border:1px solid rgba(0,120,212,.2);border-radius:8px;padding:8px 12px;margin:6px 12px;font-size:13px;color:#0078d4;display:flex;align-items:center;gap:5px}
+
 /* ── COMPARE TABLE ── */
 #s-compare{flex-direction:column;overflow:hidden}
-.compare-header{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 16px;flex-shrink:0;border-bottom:1px solid var(--border);
-}
+.compare-header{display:flex;align-items:center;gap:10px;padding:10px 16px;flex-shrink:0;border-bottom:1px solid var(--border)}
 .compare-body{flex:1;overflow:auto;padding:12px 16px 24px}
 .compare-table{width:100%;border-collapse:separate;border-spacing:0 6px;min-width:520px}
-.compare-table th{
-  padding:8px 12px;font-family:var(--font-h);font-size:11px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;
-}
-.compare-table td{
-  padding:10px 12px;font-size:12px;line-height:1.5;
-  background:var(--s1);border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);vertical-align:top;
-}
+.compare-table th{padding:8px 12px;font-family:var(--font-h);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left}
+.compare-table td{padding:10px 12px;font-size:12px;line-height:1.5;background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);vertical-align:top}
 .compare-table td:first-child{border-left:1px solid var(--border);border-radius:10px 0 0 10px}
 .compare-table td:last-child{border-right:1px solid var(--border);border-radius:0 10px 10px 0}
 .ct-tool{display:flex;align-items:center;gap:8px;font-family:var(--font-h);font-size:13px;font-weight:800}
@@ -143,11 +307,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .ct-minus{font-size:11px;color:var(--red)}
 .ct-devices{display:flex;gap:4px;flex-wrap:wrap}
 .ct-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(255,255,255,.1);color:var(--muted)}
-
-/* Legend */
-.legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted)}
-.legend-dot{width:8px;height:8px;border-radius:50%}
 </style>
 </head>
 <body>
@@ -156,8 +315,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <!-- MENU -->
   <div id="s-menu" class="screen active">
     <div class="menu-chip">Atelier 2 — Panorama</div>
-    <div class="menu-title">Les 5 formes de<br>communication numérique</div>
-    <div class="menu-sub">Explorez chaque outil en détail, ou consultez le tableau comparatif pour voir les différences en un coup d'œil.</div>
+    <div class="menu-title">Les formes de<br>communication numérique</div>
+    <div class="menu-sub">Explorez chaque outil en détail avec sa simulation d'interface, ou consultez le tableau comparatif.</div>
     <div class="tool-nav" id="tool-nav"></div>
     <button class="compare-btn" onclick="showCompare()">📊 Tableau comparatif</button>
   </div>
@@ -179,21 +338,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <span style="font-family:var(--font-h);font-size:15px;font-weight:800">Tableau comparatif</span>
     </div>
     <div class="compare-body">
-      <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Avantage</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Limite</div>
-      </div>
       <div style="overflow-x:auto">
       <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Outil</th>
-            <th>Idéal pour</th>
-            <th>Avantages clés</th>
-            <th>Limites</th>
-            <th>Appareils</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>Outil</th><th>Idéal pour</th><th>Avantages clés</th><th>Limites</th><th>Appareils</th>
+        </tr></thead>
         <tbody id="compare-tbody"></tbody>
       </table>
       </div>
@@ -202,262 +351,879 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 </div>
 <script>
+// ═══════════════════════════════════════════════════
+// TOOLS DATA
+// ═══════════════════════════════════════════════════
 const TOOLS = [
   {
-    id:'sms', ico:'💬', name:'SMS', color:'#2ECC71',
+    id:'sms',ico:'💬',name:'SMS',color:'#2ECC71',
     tagline:'Le message texte classique — simple, universel, sans internet.',
     devices:['📱 Android','📱 iPhone','📋 Tablette'],
-    pros:[
-      'Fonctionne sans Wi-Fi ni internet',
-      'Tous les téléphones peuvent l\'envoyer et le recevoir',
-      'Pas besoin de compte ni d\'appli spéciale',
-      'Très simple à utiliser',
-    ],
-    cons:[
-      'Payant selon forfait (souvent limité)',
-      'Photo/vidéo = MMS, plus cher',
-      'Pas de confirmation de lecture dans tous les cas',
-      'De moins en moins utilisé — remplacé par la messagerie instantanée (WhatsApp…)',
-    ],
+    pros:['Fonctionne sans Wi-Fi ni internet','Tous les téléphones peuvent l\'envoyer et le recevoir','Pas besoin de compte ni d\'appli spéciale','Très simple à utiliser'],
+    cons:['Payant selon forfait (souvent limité)','Photo/vidéo = MMS, plus cher','Pas de confirmation de lecture dans tous les cas','De moins en moins utilisé — remplacé par la messagerie instantanée (WhatsApp…)'],
     usecases:[
-      {ico:'💬', title:'Message court à une personne précise', desc:'"J\'arrive dans 10 minutes", "Bien arrivé !", "Je suis en bas de chez toi"'},
-      {ico:'📱', title:'Contacter quelqu\'un sans smartphone', desc:'Idéal pour joindre une personne qui n\'a pas WhatsApp ou internet'},
-      {ico:'🔔', title:'Rappels et confirmations automatiques', desc:'Rappels de rendez-vous médicaux, codes de validation reçus par SMS'},
+      {ico:'💬',title:'Message court à une personne précise',desc:'"J\'arrive dans 10 minutes", "Bien arrivé !", "Je suis en bas de chez toi"'},
+      {ico:'📱',title:'Contacter quelqu\'un sans smartphone',desc:'Idéal pour joindre une personne qui n\'a pas WhatsApp ou internet'},
+      {ico:'🔔',title:'Rappels et confirmations automatiques',desc:'Rappels de rendez-vous médicaux, codes de validation reçus par SMS'},
     ],
     tip:'Le SMS est parfait comme <strong>filet de sécurité</strong> — même sans Wi-Fi, même avec une petite connexion, il passe presque toujours.',
-    compareIdeal:'Messages très courts, contacts sans smartphone',
-    comparePlus:'Sans internet, universel',
-    compareMoins:'Payant, en déclin face à WhatsApp',
-    compareDevices:['📱 Android','📱 iPhone'],
+    compareIdeal:'Messages très courts, contacts sans smartphone',comparePlus:'Sans internet, universel',compareMoins:'Payant, en déclin face à WhatsApp',compareDevices:['📱 Android','📱 iPhone'],
+    sim:'sms',
   },
   {
-    id:'wa', ico:'📱', name:'WhatsApp (messagerie instantanée)', color:'#25D366',
+    id:'wa',ico:'📱',name:'WhatsApp (messagerie instantanée)',color:'#25D366',
     tagline:'La messagerie instantanée la plus utilisée en France — gratuite, complète.',
     devices:['📱 Android','📱 iPhone','🖥️ PC Windows','💻 Mac'],
-    pros:[
-      'Gratuit avec le Wi-Fi (illimité)',
-      'Photos, vidéos, documents inclus',
-      'Messages vocaux — parler sans écrire',
-      'Groupes familiaux ou amicaux',
-      'Appels vidéo intégrés (jusqu\'à 8 personnes)',
-      'Confirmation de lecture (✓✓ bleus)',
-    ],
-    cons:[
-      'Nécessite un compte (numéro de téléphone)',
-      'L\'autre personne doit aussi avoir WhatsApp',
-      'Consomme des données mobiles (hors Wi-Fi)',
-      'Nécessite une connexion internet',
-    ],
+    pros:['Gratuit avec le Wi-Fi (illimité)','Photos, vidéos, documents inclus','Messages vocaux — parler sans écrire','Groupes familiaux ou amicaux','Appels vidéo intégrés (jusqu\'à 8 personnes)','Confirmation de lecture (✓✓ bleus)'],
+    cons:['Nécessite un compte (numéro de téléphone)','L\'autre personne doit aussi avoir WhatsApp','Consomme des données mobiles (hors Wi-Fi)','Nécessite une connexion internet'],
     usecases:[
-      {ico:'💬', title:'Envoyer des messages', desc:'Écrire à un proche, répondre, avoir une vraie conversation textuelle — instantané et gratuit'},
-      {ico:'👨‍👩‍👧', title:'Groupe famille', desc:'Partager des nouvelles, des photos, des événements avec toute la famille en même temps'},
-      {ico:'🎤', title:'Message vocal', desc:'Pratique quand on écrit lentement — on parle comme au téléphone, l\'autre écoute quand il veut'},
-      {ico:'📸', title:'Partager des photos', desc:'Envoyer des photos directement depuis sa galerie, sans frais et en haute qualité'},
+      {ico:'💬',title:'Envoyer des messages',desc:'Écrire à un proche, répondre, avoir une vraie conversation textuelle — instantané et gratuit'},
+      {ico:'👨‍👩‍👧',title:'Groupe famille',desc:'Partager des nouvelles, des photos, des événements avec toute la famille en même temps'},
+      {ico:'🎤',title:'Message vocal',desc:'Pratique quand on écrit lentement — on parle comme au téléphone, l\'autre écoute quand il veut'},
+      {ico:'📸',title:'Partager des photos',desc:'Envoyer des photos directement depuis sa galerie, sans frais et en haute qualité'},
     ],
     tip:'WhatsApp est souvent la <strong>première messagerie à maîtriser</strong> pour les seniors — le groupe famille est une excellente motivation pour l\'apprendre.',
-    compareIdeal:'Messages, famille, groupes, photos',
-    comparePlus:'Gratuit, vocal, photos, groupes',
-    compareMoins:'Compte requis, internet nécessaire',
-    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    compareIdeal:'Messages, famille, groupes, photos',comparePlus:'Gratuit, vocal, photos, groupes',compareMoins:'Compte requis, internet nécessaire',compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    sim:'wa',
   },
   {
-    id:'email', ico:'📧', name:'Email', color:'#4A9EE0',
+    id:'email',ico:'📧',name:'Email',color:'#4A9EE0',
     tagline:'Le courrier électronique — pour les démarches officielles et les documents.',
     devices:['📱 Android','📱 iPhone','📋 Tablette','🖥️ PC Windows','💻 Mac'],
-    pros:[
-      'Universel — tout le monde a une adresse e-mail',
-      'Pièces jointes : documents, photos, PDF',
-      'Trace écrite conservée dans la boîte mail',
-      'Gratuit',
-      'Fonctionne sur tous les appareils',
-    ],
-    cons:[
-      'Moins instantané — réponse en heures ou jours',
-      'Risque de spam (messages indésirables)',
-      'Plus formel à rédiger',
-      'Nécessite une adresse e-mail valide',
-    ],
+    pros:['Universel — tout le monde a une adresse e-mail','Pièces jointes : documents, photos, PDF','Trace écrite conservée dans la boîte mail','Gratuit','Fonctionne sur tous les appareils'],
+    cons:['Moins instantané — réponse en heures ou jours','Risque de spam (messages indésirables)','Plus formel à rédiger','Nécessite une adresse e-mail valide'],
     usecases:[
-      {ico:'🏛️', title:'Contacter une administration', desc:'Mairie, CAF, Sécurité Sociale, impôts — ils répondent tous par email'},
-      {ico:'🩺', title:'Envoyer un document médical', desc:'Ordonnance, résultats d\'analyse, attestation à votre médecin'},
-      {ico:'🏠', title:'Démarches immobilières', desc:'Envoyer une attestation d\'assurance, un justificatif de domicile'},
+      {ico:'🏛️',title:'Contacter une administration',desc:'Mairie, CAF, Sécurité Sociale, impôts — ils répondent tous par email'},
+      {ico:'🩺',title:'Envoyer un document médical',desc:'Ordonnance, résultats d\'analyse, attestation à votre médecin'},
+      {ico:'🏠',title:'Démarches immobilières',desc:'Envoyer une attestation d\'assurance, un justificatif de domicile'},
     ],
     tip:'L\'email est incontournable pour <strong>toutes les démarches officielles</strong>. Une bonne adresse Gmail ou Orange est comme une boîte aux lettres toujours accessible.',
-    compareIdeal:'Administrations, démarches, documents',
-    comparePlus:'Universel, pièces jointes, trace écrite',
-    compareMoins:'Lent, spam, plus formel',
-    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    compareIdeal:'Administrations, démarches, documents',comparePlus:'Universel, pièces jointes, trace écrite',compareMoins:'Lent, spam, plus formel',compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    sim:'email',
   },
   {
-    id:'video', ico:'📹', name:'Appel vidéo', color:'#E74C3C',
+    id:'video',ico:'📹',name:'Appel vidéo',color:'#E74C3C',
     tagline:'Voir et entendre ses proches à distance — comme être dans la même pièce.',
     devices:['📱 Android','📱 iPhone','📋 Tablette','🖥️ PC Windows','💻 Mac'],
-    pros:[
-      'Gratuit avec le Wi-Fi partout dans le monde',
-      'On voit le visage de l\'autre — beaucoup plus chaleureux',
-      'Partage d\'écran possible (Google Meet)',
-      'Plusieurs personnes en même temps',
-      'Caméra et micro contrôlables séparément',
-    ],
-    cons:[
-      'Nécessite une bonne connexion internet',
-      'Peut intimider au début',
-      'Nécessite une caméra (frontale sur smartphone)',
-      'L\'autre doit aussi avoir l\'appli ou le lien',
-    ],
+    pros:['Gratuit avec le Wi-Fi partout dans le monde','On voit le visage de l\'autre — beaucoup plus chaleureux','Partage d\'écran possible (Google Meet)','Plusieurs personnes en même temps','Caméra et micro contrôlables séparément'],
+    cons:['Nécessite une bonne connexion internet','Peut intimider au début','Nécessite une caméra (frontale sur smartphone)','L\'autre doit aussi avoir l\'appli ou le lien'],
     usecases:[
-      {ico:'🌍', title:'Famille à distance', desc:'Petits-enfants en France ou à l\'étranger — voir leur visage régulièrement'},
-      {ico:'👨‍⚕️', title:'Téléconsultation médicale', desc:'Consulter son médecin depuis chez soi via Doctolib ou un lien Meet'},
-      {ico:'🎂', title:'Partager un moment spécial', desc:'Anniversaire, Noël, événement familial — être présent à distance'},
+      {ico:'🌍',title:'Famille à distance',desc:'Petits-enfants en France ou à l\'étranger — voir leur visage régulièrement'},
+      {ico:'👨‍⚕️',title:'Téléconsultation médicale',desc:'Consulter son médecin depuis chez soi via Doctolib ou un lien Meet'},
+      {ico:'🎂',title:'Partager un moment spécial',desc:'Anniversaire, Noël, événement familial — être présent à distance'},
     ],
     tip:'Commencez par <strong>WhatsApp vidéo</strong> — c\'est l\'appli déjà installée et la plus simple. Google Meet est utile pour les groupes plus larges ou la téléconsultation.',
-    compareIdeal:'Famille éloignée, téléconsultation',
-    comparePlus:'Gratuit, voir le visage, monde entier',
-    compareMoins:'Connexion requise, caméra nécessaire',
-    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    compareIdeal:'Famille éloignée, téléconsultation',comparePlus:'Gratuit, voir le visage, monde entier',compareMoins:'Connexion requise, caméra nécessaire',compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    sim:'video',
   },
   {
-    id:'fb', ico:'👥', name:'Facebook / Réseau social', color:'#1877F2',
+    id:'fb',ico:'👥',name:'Facebook / Réseau social',color:'#1877F2',
     tagline:'Le réseau social — pour rester connecté avec un cercle plus large.',
     devices:['📱 Android','📱 iPhone','🖥️ PC Windows','💻 Mac'],
-    pros:[
-      'Retrouver d\'anciens amis et connaissances',
-      'Partager des nouvelles avec un cercle élargi',
-      'Groupes thématiques (jardinage, cuisine, voyage…)',
-      'Messenger = messagerie intégrée, gratuite',
-      'Événements locaux, actualités',
-    ],
-    cons:[
-      'Vie privée plus exposée par défaut',
-      'Publicités fréquentes dans le fil',
-      'Flux d\'informations parfois distrayant ou anxiogène',
-      'Nécessite de bien paramétrer la confidentialité',
-      'Ne pas créer de compte sans accompagnement',
-    ],
+    pros:['Retrouver d\'anciens amis et connaissances','Partager des nouvelles avec un cercle élargi','Groupes thématiques (jardinage, cuisine, voyage…)','Messenger = messagerie intégrée, gratuite','Événements locaux, actualités'],
+    cons:['Vie privée plus exposée par défaut','Publicités fréquentes dans le fil','Flux d\'informations parfois distrayant ou anxiogène','Nécessite de bien paramétrer la confidentialité','Ne pas créer de compte sans accompagnement'],
     usecases:[
-      {ico:'🎓', title:'Retrouver d\'anciens amis', desc:'Camarades d\'école, anciens collègues, voisins d\'autrefois'},
-      {ico:'🌻', title:'Rejoindre un groupe passion', desc:'Club de marche, tricot, jardinage, recettes — des milliers de groupes existent'},
-      {ico:'📰', title:'Suivre les actualités locales', desc:'Événements de sa commune, associations, groupes de voisinage'},
+      {ico:'🎓',title:'Retrouver d\'anciens amis',desc:'Camarades d\'école, anciens collègues, voisins d\'autrefois'},
+      {ico:'🌻',title:'Rejoindre un groupe passion',desc:'Club de marche, tricot, jardinage, recettes — des milliers de groupes existent'},
+      {ico:'📰',title:'Suivre les actualités locales',desc:'Événements de sa commune, associations, groupes de voisinage'},
     ],
-    tip:'Facebook est <strong>à aborder avec prudence</strong> — bien paramétrer la confidentialité est indispensable avant de l\'utiliser. L\'atelier 3 sur Internet au quotidien sera l\'occasion d\'y revenir en détail.',
-    compareIdeal:'Communautés, anciens amis, actualités',
-    comparePlus:'Réseau large, groupes, événements',
-    compareMoins:'Vie privée, publicités, attention requise',
-    compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    tip:'Facebook est <strong>à aborder avec prudence</strong> — bien paramétrer la confidentialité est indispensable. L\'atelier 3 sera l\'occasion d\'y revenir.',
+    compareIdeal:'Communautés, anciens amis, actualités',comparePlus:'Réseau large, groupes, événements',compareMoins:'Vie privée, publicités, attention requise',compareDevices:['📱 Android','📱 iPhone','🖥️ PC'],
+    sim:null,
   },
 ];
 
-let currentTool = 0;
+let currentTool=0;
+function showMenu(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('s-menu').classList.add('active');}
+function showCompare(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('s-compare').classList.add('active');renderCompare();}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
-function showMenu(){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById('s-menu').classList.add('active'); }
-function showCompare(){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById('s-compare').classList.add('active'); renderCompare(); }
-function showScreen(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
+// ═══════════════════════════════════════════════════
+// SIMULATIONS
+// ═══════════════════════════════════════════════════
+function buildSmsPhone() {
+  const PH=580,PW=290,B=14,SH=PH-B*2,SW=PW-B*2;
+  const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+  const shell=document.createElement('div');shell.className='phone-shell';
+  shell.style.cssText=`width:${PW}px;height:${PH}px;border-radius:44px`;
+  const punch=document.createElement('div');punch.className='punch';punch.style.cssText=`width:16px;height:16px;top:17px`;
+  shell.appendChild(punch);
+  const screen=document.createElement('div');screen.className='phone-screen';
+  screen.style.cssText=`top:${B}px;left:${B}px;width:${SW}px;height:${SH}px;border-radius:32px`;
 
+  const ui=document.createElement('div');ui.className='sms-ui';
+  ui.innerHTML=`
+    <div class="sms-navbar">
+      <div class="sms-back">← Pierre</div>
+      <div class="sms-contact"><div class="sms-contact-name">Pierre Martin</div><div class="sms-contact-sub">SMS</div></div>
+      <div style="font-size:13px;color:#007AFF">📞</div>
+    </div>
+    <div class="sms-thread">
+      <div class="sms-bubble-wrap in"><div class="sms-bubble in">Tu es où ? On t'attend !</div><div class="sms-time">14:12</div></div>
+      <div class="sms-bubble-wrap out"><div class="sms-bubble out">J'arrive dans 10 min !</div><div class="sms-time" style="text-align:right">14:13 ✓</div></div>
+      <div class="sms-bubble-wrap out"><div class="sms-bubble out">Je suis bloqué au feu rouge 🚦</div><div class="sms-time" style="text-align:right">14:13 ✓✓</div></div>
+      <div class="sms-bubble-wrap in"><div class="sms-bubble in">Ok ! On garde ta part 😄</div><div class="sms-time">14:15</div></div>
+      <div class="sms-annot"><span style="font-size:12px">✓✓</span> Deux coches = message reçu</div>
+    </div>
+    <div class="sms-input-row">
+      <input class="sms-input-field" placeholder="Message" readonly/>
+      <button class="sms-send-btn" onclick="this.style.transform='scale(.85)';setTimeout(()=>this.style.transform='',100)">↑</button>
+    </div>`;
+  screen.appendChild(ui);shell.appendChild(screen);wrap.appendChild(shell);
+  const lbl=document.createElement('div');lbl.className='sim-label';lbl.style.color='#2ECC71';lbl.textContent='SMS Android';wrap.appendChild(lbl);
+  return wrap;
+}
+
+function buildWaPhone() {
+  const PH=600,PW=295,B=14,SH=PH-B*2,SW=PW-B*2;
+  const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+  const shell=document.createElement('div');shell.className='phone-shell';
+  shell.style.cssText=`width:${PW}px;height:${PH}px;border-radius:46px`;
+  const di=document.createElement('div');di.className='dyn-island';di.style.cssText=`width:110px;height:26px;top:14px`;
+  shell.appendChild(di);
+  const hb=document.createElement('div');hb.className='home-bar-s';hb.style.cssText=`width:100px;height:5px;bottom:8px`;
+  shell.appendChild(hb);
+  const screen=document.createElement('div');screen.className='phone-screen';
+  screen.style.cssText=`top:${B}px;left:${B}px;width:${SW}px;height:${SH}px;border-radius:34px`;
+
+  const bars=[28,16,22,32,18,26,14,30,20,24,12,28,22,16].map(h=>`<div class="wa-voice-bar" style="height:${h}px;background:#888"></div>`).join('');
+
+  const ui=document.createElement('div');ui.className='wa-ui';
+  ui.innerHTML=`
+    <div class="wa-navbar">
+      <div class="wa-back">←</div>
+      <div class="wa-avatar">M</div>
+      <div class="wa-contact-info"><div class="wa-contact-name">Marie</div><div class="wa-contact-status">En ligne</div></div>
+      <div class="wa-icons"><span>📹</span><span>📞</span></div>
+    </div>
+    <div class="wa-thread">
+      <div class="wa-msg-wrap in">
+        <div class="wa-bubble in">Bonjour ! Tu as reçu ma recette ?</div>
+        <div class="sms-time">10:22</div>
+      </div>
+      <div class="wa-msg-wrap out">
+        <div class="wa-voice-bubble">
+          <div class="wa-voice-play" onclick="this.textContent=this.textContent==='▶'?'⏸':'▶'">▶</div>
+          <div class="wa-voice-wave">${bars}</div>
+          <div class="wa-voice-dur">0:08</div>
+        </div>
+        <div style="display:flex;gap:4px;align-items:center;justify-content:flex-end;margin-top:2px">
+          <span style="font-size:9px;color:#999">10:23</span>
+          <span style="font-size:10px;color:#4FC3F7">✓✓</span>
+        </div>
+      </div>
+      <div class="wa-msg-wrap out">
+        <div class="wa-bubble out">
+          <div style="background:#f0f0f0;border-radius:6px;padding:4px 6px;margin-bottom:4px;font-size:10px;color:#555">📎 photo_jardin.jpg</div>
+          Super recette ! Voici mes roses 🌹
+          <div class="wa-bubble-meta"><span class="wa-bubble-time">10:24</span><span class="wa-bubble-ticks">✓✓</span></div>
+        </div>
+      </div>
+      <div class="wa-annot">🎤 Appui long pour enregistrer un vocal</div>
+    </div>
+    <div class="wa-input-row">
+      <span class="wa-attach">📎</span>
+      <input class="wa-input-field" placeholder="Message" readonly/>
+      <button class="wa-mic-btn" onmousedown="this.style.background='#0a5a52'" onmouseup="this.style.background='#128C7E'">🎤</button>
+    </div>`;
+  screen.appendChild(ui);shell.appendChild(screen);wrap.appendChild(shell);
+  const lbl=document.createElement('div');lbl.className='sim-label';lbl.style.color='#25D366';lbl.textContent='WhatsApp';wrap.appendChild(lbl);
+  return wrap;
+}
+
+function buildGmailPhone() {
+  const PH=570,PW=286,B=14,SH=PH-B*2,SW=PW-B*2;
+  const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+  const shell=document.createElement('div');shell.className='phone-shell';shell.style.cssText=`width:${PW}px;height:${PH}px;border-radius:44px`;
+  const di=document.createElement('div');di.className='dyn-island';di.style.cssText=`width:108px;height:24px;top:14px`;shell.appendChild(di);
+  const hb=document.createElement('div');hb.className='home-bar-s';hb.style.cssText=`width:40px;height:3px;bottom:4px`;shell.appendChild(hb);
+  const screen=document.createElement('div');screen.className='phone-screen';screen.style.cssText=`top:${B}px;left:${B}px;width:${SW}px;height:${SH}px;border-radius:22px;`;
+
+  // ── Email data
+  const MAILS = [
+    {
+      id:'m1', unread:true,
+      avatar:'M', avatarBg:'#0078d4',
+      sender:'Mairie de Lyon',
+      email:'mairie@lyon.fr',
+      subject:'Réponse à votre demande de certificat',
+      preview:'Madame, Monsieur, Suite à votre…',
+      time:'09:14',
+      body:`Madame Dupont,\n\nNous avons bien reçu votre demande de certificat de résidence en date du 10 avril.\n\nVotre certificat est disponible. Vous pouvez le télécharger en pièce jointe ou le retirer à l'accueil de la mairie aux horaires d'ouverture.\n\nCordialement,\nService Administratif\nMairie de Lyon\n☎ 04 72 10 30 30`,
+      attachment:'certificat_residence.pdf',
+    },
+    {
+      id:'m2', unread:true,
+      avatar:'D', avatarBg:'#128C7E',
+      sender:'Doctolib',
+      email:'confirmation@doctolib.fr',
+      subject:'Rappel : RDV Dr Martin demain',
+      preview:'Votre rendez-vous du 18 avril à 14h30…',
+      time:'Hier',
+      body:`Bonjour Mme Dupont,\n\nNous vous rappelons votre rendez-vous :\n\n👨‍⚕️ Dr Martin Pierre — Médecin généraliste\n📅 Jeudi 18 avril à 14h30\n📍 12 rue des Acacias, Lyon 3e\n\nEn cas d'empêchement, merci d'annuler au moins 24h à l'avance via Doctolib ou au 04 78 00 00 00.\n\nÀ bientôt,\nL'équipe Doctolib`,
+      attachment:null,
+    },
+    {
+      id:'m3', unread:false,
+      avatar:'L', avatarBg:'#8B2FC9',
+      sender:'Lucie (ma fille)',
+      email:'lucie.dupont@gmail.com',
+      subject:'Photos vacances 🌊',
+      preview:'Regarde ces belles photos…',
+      time:'Lundi',
+      body:`Bonjour Maman !\n\nJe t'envoie quelques photos de nos vacances en Bretagne. On a eu un temps magnifique ! 🌊☀️\n\nLes enfants ont adoré la plage. Jules a même appris à faire du vélo sur le chemin côtier.\n\nOn pense fort à toi.\n\nBises,\nLucie, Pierre et les enfants 😘`,
+      attachment:'photos_vacances.jpg',
+    },
+    {
+      id:'m4', unread:false,
+      avatar:'A', avatarBg:'#E74C3C',
+      sender:'Ameli.fr',
+      email:'contact@ameli.fr',
+      subject:'Votre remboursement a été effectué',
+      preview:'Un remboursement de 25,80 € vient…',
+      time:'12 avril',
+      body:`Bonjour,\n\nUn remboursement de 25,80 € vient d'être versé sur votre compte bancaire.\n\nDétail du remboursement :\n- Consultation Dr Martin du 05/04 : 25,80 €\n\nVous pouvez consulter le détail de tous vos remboursements sur votre espace ameli.fr ou sur l'application Ameli.\n\nCordialement,\nL'Assurance Maladie`,
+      attachment:null,
+    },
+  ];
+
+  const ui=document.createElement('div');ui.className='gmail-ui';ui.style.position='relative';
+
+  // ── Build inbox
+  function buildInbox() {
+    return `
+      <div class="gmail-topbar">
+        <div class="gmail-back" style="opacity:0">←</div>
+        <div class="gmail-title">Boîte de réception</div>
+        <div class="gmail-icons"><span>🔍</span></div>
+      </div>
+      <div class="gmail-annot">📬 Tapez sur un email pour l'ouvrir et voir toutes les actions</div>
+      <div class="gmail-list" id="gmail-inbox">
+        ${MAILS.map(m=>`
+        <div class="gmail-item ${m.unread?'unread':''}" onclick="gmailOpenMail('${m.id}')">
+          <div class="gmail-avatar" style="background:${m.avatarBg}">${m.avatar}</div>
+          <div class="gmail-item-body">
+            <div class="gmail-item-row">
+              <span class="gmail-item-sender">${m.sender}</span>
+              <span class="gmail-item-time">${m.time}</span>
+            </div>
+            <div class="gmail-item-subject">${m.subject}</div>
+            <div class="gmail-item-preview">${m.preview}</div>
+          </div>
+          ${m.unread?'<div class="gmail-unread-dot"></div>':''}
+        </div>`).join('')}
+      </div>
+      <button class="gmail-compose-btn" onclick="gmailCompose()">✏️ Nouveau</button>`;
+  }
+
+  // ── Build mail reader
+  window.gmailOpenMail = (id) => {
+    const m = MAILS.find(x=>x.id===id);
+    if(!m) return;
+    m.unread = false;
+    const screen = document.getElementById('gmail-mob-screen');
+    if(!screen) return;
+    screen.innerHTML = `
+      <div class="gmail-topbar">
+        <div class="gmail-back" onclick="gmailGoInbox()" style="cursor:pointer">← Boîte</div>
+        <div class="gmail-title" style="font-size:14px">${m.subject.length>22?m.subject.slice(0,22)+'…':m.subject}</div>
+        <div class="gmail-icons">
+          <span title="Archiver" onclick="gmailAction('Archivé ✓')">📁</span>
+          <span title="Supprimer" onclick="gmailAction('Supprimé 🗑️')">🗑️</span>
+        </div>
+      </div>
+      <div style="flex:1;overflow-y:auto;background:white">
+        <!-- Expéditeur détaillé -->
+        <div style="padding:14px 16px 10px;border-bottom:1px solid #f0f0f0">
+          <div style="font-size:17px;font-weight:800;color:#111;margin-bottom:6px">${m.subject}</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:40px;height:40px;border-radius:50%;background:${m.avatarBg};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:white;flex-shrink:0">${m.avatar}</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:700;color:#111">${m.sender}</div>
+              <div style="font-size:12px;color:#888;display:flex;align-items:center;gap:4px">
+                <span>&lt;${m.email}&gt;</span>
+              </div>
+            </div>
+            <div style="font-size:12px;color:#aaa;flex-shrink:0">${m.time}</div>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:#888">À : moi &lt;monprenom.dupont@gmail.com&gt;</div>
+        </div>
+        <!-- Annotation expéditeur -->
+        <div class="gmail-annot" style="margin:8px 14px">
+          👤 <strong>Nom de l'expéditeur</strong> + son adresse email entre &lt; &gt;
+        </div>
+        <!-- Corps -->
+        <div style="padding:14px 16px;font-size:15px;line-height:1.7;color:#333;white-space:pre-line">${m.body}</div>
+        <!-- Pièce jointe -->
+        ${m.attachment?`
+        <div style="margin:0 16px 16px;border:1px solid #e0e0e0;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;background:#f8f9fc" onclick="gmailAction('Pièce jointe téléchargée ✓')">
+          <span style="font-size:26px">${m.attachment.endsWith('.pdf')?'📋':'🖼️'}</span>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#333">${m.attachment}</div>
+            <div style="font-size:11px;color:#888">Tapez pour télécharger</div>
+          </div>
+          <span style="margin-left:auto;font-size:18px;color:#1a73e8">⬇️</span>
+        </div>`:''}
+      </div>
+      <!-- Barre d'actions -->
+      <div class="gmail-annot" style="margin:6px 14px">💡 Actions disponibles sur cet email :</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 14px 14px;background:white;border-top:1px solid #f0f0f0;flex-shrink:0">
+        <button onclick="gmailReply('${m.id}')" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:#1a73e8;color:white;border:none;border-radius:10px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer">↩ Répondre</button>
+        <button onclick="gmailAction('Répondre à tous ✓')" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:#f0f0f0;color:#333;border:none;border-radius:10px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer">↩↩ Rép. à tous</button>
+        <button onclick="gmailForward('${m.id}')" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:#f0f0f0;color:#333;border:none;border-radius:10px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer">↪ Transférer</button>
+        <button onclick="gmailAction('Archivé ✓')" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:#f0f0f0;color:#333;border:none;border-radius:10px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer">📁 Archiver</button>
+      </div>`;
+  };
+
+  window.gmailGoInbox = () => {
+    const screen = document.getElementById('gmail-mob-screen');
+    if(screen) screen.innerHTML = buildInbox();
+  };
+
+  window.gmailAction = (msg) => {
+    const toast = document.createElement('div');
+    toast.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(30,30,30,.9);color:white;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;z-index:9999;pointer-events:none';
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(()=>toast.remove(),2000);
+  };
+
+  window.gmailReply = (id) => {
+    const m = MAILS.find(x=>x.id===id);
+    const screen = document.getElementById('gmail-mob-screen');
+    if(!screen||!m) return;
+    screen.innerHTML = `
+      <div class="gmail-topbar">
+        <div class="gmail-back" onclick="gmailOpenMail('${id}')" style="cursor:pointer">← Email</div>
+        <div class="gmail-title">Répondre</div>
+        <div class="gmail-icons"></div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;background:white;overflow-y:auto">
+        <div class="gmail-annot" style="margin:10px 14px">↩ Votre réponse ira à <strong>${m.sender}</strong> &lt;${m.email}&gt;</div>
+        <div style="border-bottom:1px solid #e0e0e0;padding:10px 16px;display:flex;align-items:center;gap:8px">
+          <span style="font-size:15px;color:#666;width:40px">À</span>
+          <span style="font-size:15px;color:#333;font-weight:600">${m.sender} &lt;${m.email}&gt;</span>
+        </div>
+        <div style="border-bottom:1px solid #e0e0e0;padding:10px 16px;display:flex;align-items:center;gap:8px">
+          <span style="font-size:15px;color:#666;width:40px">Objet</span>
+          <span style="font-size:15px;color:#333">Re: ${m.subject}</span>
+        </div>
+        <div style="flex:1;padding:14px 16px;font-size:15px;color:#999;font-style:italic">Tapez votre réponse ici…</div>
+        <div style="border-top:2px dashed #e0e0e0;padding:10px 16px;background:#f8f9fc">
+          <div style="font-size:12px;color:#aaa;margin-bottom:6px">— Message original —</div>
+          <div style="font-size:12px;color:#888;line-height:1.5;white-space:pre-line">${m.body.slice(0,120)}…</div>
+        </div>
+      </div>
+      <div style="padding:10px 14px;background:white;border-top:1px solid #f0f0f0;display:flex;gap:8px;flex-shrink:0">
+        <button onclick="gmailAction('Réponse envoyée ✓');gmailGoInbox()" style="flex:1;padding:12px;background:#1a73e8;color:white;border:none;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer">Envoyer ▶</button>
+        <button onclick="gmailOpenMail('${id}')" style="padding:12px 16px;background:#f0f0f0;color:#666;border:none;border-radius:10px;font-family:var(--font-b);font-size:14px;cursor:pointer">Annuler</button>
+        <button style="padding:12px;background:#f0f0f0;color:#666;border:none;border-radius:10px;font-size:18px;cursor:pointer" title="Joindre">📎</button>
+      </div>`;
+  };
+
+  window.gmailForward = (id) => {
+    const m = MAILS.find(x=>x.id===id);
+    const screen = document.getElementById('gmail-mob-screen');
+    if(!screen||!m) return;
+    screen.innerHTML = `
+      <div class="gmail-topbar">
+        <div class="gmail-back" onclick="gmailOpenMail('${id}')" style="cursor:pointer">← Email</div>
+        <div class="gmail-title">Transférer</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;background:white;overflow-y:auto">
+        <div class="gmail-annot" style="margin:10px 14px">↪ Vous transmettez cet email à quelqu'un d'autre</div>
+        <div style="border-bottom:1px solid #e0e0e0;padding:10px 16px;display:flex;align-items:center;gap:8px">
+          <span style="font-size:15px;color:#666;width:40px">À</span>
+          <span style="font-size:15px;color:#aaa;font-style:italic">Entrez l'adresse du destinataire…</span>
+        </div>
+        <div style="border-bottom:1px solid #e0e0e0;padding:10px 16px;display:flex;align-items:center;gap:8px">
+          <span style="font-size:15px;color:#666;width:40px">Objet</span>
+          <span style="font-size:15px;color:#333">Tr: ${m.subject}</span>
+        </div>
+        <div style="padding:10px 16px;font-size:12px;color:#aaa;font-style:italic;border-bottom:1px solid #e0e0e0">Ajoutez un message (facultatif)…</div>
+        <div style="padding:14px 16px;background:#f8f9fc">
+          <div style="font-size:12px;color:#aaa;margin-bottom:6px">— Message transféré de ${m.sender} —</div>
+          <div style="font-size:12px;color:#666;line-height:1.5;white-space:pre-line">${m.body.slice(0,150)}…</div>
+        </div>
+      </div>
+      <div style="padding:10px 14px;background:white;border-top:1px solid #f0f0f0;display:flex;gap:8px;flex-shrink:0">
+        <button onclick="gmailAction('Email transféré ✓');gmailGoInbox()" style="flex:1;padding:12px;background:#1a73e8;color:white;border:none;border-radius:10px;font-family:var(--font-b);font-size:15px;font-weight:700;cursor:pointer">Envoyer ▶</button>
+        <button onclick="gmailOpenMail('${id}')" style="padding:12px 16px;background:#f0f0f0;color:#666;border:none;border-radius:10px;font-family:var(--font-b);font-size:14px;cursor:pointer">Annuler</button>
+      </div>`;
+  };
+
+  window.gmailCompose = () => {
+    const screen = document.getElementById('gmail-mob-screen');
+    if(!screen) return;
+    screen.innerHTML = `
+      <div class="gmail-topbar">
+        <div class="gmail-back" onclick="gmailGoInbox()" style="cursor:pointer">✕ Annuler</div>
+        <div class="gmail-title">Nouveau message</div>
+        <div class="gmail-icons"></div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;background:white;overflow-y:auto">
+        <div class="gmail-annot" style="margin:10px 14px">✏️ Remplissez les 3 champs, puis tapez Envoyer</div>
+        <div style="border-bottom:2px solid #e0e0e0;padding:12px 16px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:15px;font-weight:700;color:#1a73e8;width:50px;flex-shrink:0">À ①</span>
+          <input style="flex:1;border:none;outline:none;font-size:15px;font-family:var(--font-b);color:#333" placeholder="adresse@exemple.fr" value="mairie@lyon.fr"/>
+        </div>
+        <div style="border-bottom:2px solid #e0e0e0;padding:12px 16px;display:flex;align-items:center;gap:10px">
+          <span style="font-size:15px;font-weight:700;color:#1a73e8;width:50px;flex-shrink:0">Objet ②</span>
+          <input style="flex:1;border:none;outline:none;font-size:15px;font-family:var(--font-b);color:#333" placeholder="Titre de votre email…" value="Demande de rendez-vous"/>
+        </div>
+        <div style="flex:1;padding:14px 16px;font-size:15px;line-height:1.7;color:#333;position:relative">
+          <div style="color:#aaa;font-style:italic;margin-bottom:10px">Message ③ — Votre texte ici…</div>
+          <div style="color:#333">Bonjour,<br><br>Je souhaite prendre rendez-vous pour une démarche administrative.<br><br>Seriez-vous disponible la semaine prochaine ?<br><br>Cordialement,<br>Mme Dupont</div>
+        </div>
+      </div>
+      <div style="padding:10px 14px;background:white;border-top:1px solid #f0f0f0;display:flex;gap:10px;flex-shrink:0;align-items:center">
+        <button onclick="gmailAction('Email envoyé ✓ — Il apparaîtra dans Envoyés');gmailGoInbox()" style="flex:1;padding:13px;background:#1a73e8;color:white;border:none;border-radius:10px;font-family:var(--font-h);font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">Envoyer ④ ▶</button>
+        <button style="padding:13px;background:#f0f0f0;color:#666;border:none;border-radius:10px;font-size:20px;cursor:pointer" title="Joindre un fichier" onclick="gmailAction('Joindre un fichier : choisissez dans vos photos ou documents')">📎</button>
+      </div>`;
+  };
+
+  ui.id = 'gmail-mob-screen';
+  ui.innerHTML = buildInbox();
+  screen.appendChild(ui);shell.appendChild(screen);wrap.appendChild(shell);
+  const lbl=document.createElement('div');lbl.className='sim-label';lbl.style.color='#4A9EE0';lbl.textContent='Gmail (mobile)';wrap.appendChild(lbl);
+  return wrap;
+}
+
+function buildOutlookPC() {
+  const W=460,H=340;
+  const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+  const pc=document.createElement('div');pc.className='pc-shell';
+  const lid=document.createElement('div');lid.className='pc-lid';lid.style.cssText=`width:${W}px;background:#2a2a2a;border-color:#444`;
+  const si=document.createElement('div');si.className='pc-screen-inner';si.style.cssText=`width:${W}px;height:${H}px`;
+
+  const OL_MAILS = [
+    { id:'o1',unread:true,avatar:'M',avatarBg:'#0078d4',sender:'Mairie de Lyon',email:'mairie@lyon.fr',subject:'Réponse à votre demande de certificat',preview:'Madame, Monsieur, Suite à votre demande…',time:'09:14',
+      body:'Madame Dupont,\n\nNous avons bien reçu votre demande de certificat de résidence du 10 avril.\n\nVotre certificat est disponible en pièce jointe.\n\nCordialement,\nService Administratif — Mairie de Lyon',attachment:'certificat_residence.pdf'},
+    { id:'o2',unread:true,avatar:'D',avatarBg:'#107C10',sender:'Doctolib',email:'confirmation@doctolib.fr',subject:'Rappel : RDV Dr Martin demain',preview:'Votre rendez-vous du 18 avril à 14h30…',time:'Hier',
+      body:'Bonjour Mme Dupont,\n\nRappel de votre rendez-vous :\n👨‍⚕️ Dr Martin — 18 avril à 14h30\n📍 12 rue des Acacias, Lyon 3e\n\nEn cas d\'empêchement, annulez 24h à l\'avance.\n\nDoctolib',attachment:null},
+    { id:'o3',unread:false,avatar:'L',avatarBg:'#8764B8',sender:'Lucie (ma fille)',email:'lucie.dupont@gmail.com',subject:'Photos vacances ! 🌊',preview:'Bonjour Maman, je t\'envoie quelques photos…',time:'Lundi',
+      body:'Bonjour Maman !\n\nJe t\'envoie des photos de Bretagne. Un temps magnifique ! 🌊\n\nLes enfants ont adoré la plage.\n\nBises, Lucie 😘',attachment:'photos_vacances.jpg'},
+    { id:'o4',unread:false,avatar:'A',avatarBg:'#E74C3C',sender:'Ameli.fr',email:'contact@ameli.fr',subject:'Remboursement effectué',preview:'Un remboursement de 25,80 €…',time:'12 avril',
+      body:'Bonjour,\n\nUn remboursement de 25,80 € a été versé sur votre compte.\n\n- Consultation Dr Martin du 05/04 : 25,80 €\n\nConsultez ameli.fr pour le détail.\n\nL\'Assurance Maladie',attachment:null},
+  ];
+
+  const ui=document.createElement('div');ui.className='outlook-ui';ui.style.cssText='position:relative;height:100%';
+  ui.id='outlook-pc-root';
+
+  function olBuildInbox() {
+    return `
+      <div class="outlook-topbar">
+        <div class="outlook-title">📧 Boîte de réception — Outlook</div>
+        <button class="outlook-compose" onclick="olCompose()">✏️ Nouveau</button>
+      </div>
+      <div class="ol-annot">📌 Cliquez sur un email pour l'ouvrir · "Nouveau" pour écrire</div>
+      <div class="outlook-list">
+        ${OL_MAILS.map(m=>`
+        <div class="outlook-item ${m.unread?'unread':''}" onclick="olOpenMail('${m.id}')">
+          <div class="outlook-avatar" style="background:${m.avatarBg}">${m.avatar}</div>
+          <div class="outlook-body">
+            <div class="outlook-row"><span class="outlook-sender">${m.sender}</span><span class="outlook-time">${m.time}</span></div>
+            <div class="outlook-subject">${m.subject}</div>
+            <div class="outlook-preview">${m.preview}</div>
+          </div>
+        </div>`).join('')}
+      </div>`;
+  }
+
+  window.olOpenMail = (id) => {
+    const m = OL_MAILS.find(x=>x.id===id);
+    const root = document.getElementById('outlook-pc-root');
+    if(!root||!m) return;
+    m.unread=false;
+    root.innerHTML = `
+      <div class="outlook-topbar" style="gap:4px">
+        <div style="color:white;font-size:13px;cursor:pointer;padding:4px 8px;border-radius:4px;background:rgba(255,255,255,.15)" onclick="olGoInbox()">← Boîte</div>
+        <!-- Actions toolbar -->
+        <div style="display:flex;gap:4px;margin-left:4px">
+          <button onclick="olReply('${m.id}')" style="background:rgba(255,255,255,.2);color:white;border:none;border-radius:4px;padding:5px 10px;font-size:12px;cursor:pointer;font-family:var(--font-b);font-weight:700">↩ Répondre</button>
+          <button onclick="olAction('Répondre à tous ✓')" style="background:rgba(255,255,255,.15);color:white;border:none;border-radius:4px;padding:5px 8px;font-size:11px;cursor:pointer;font-family:var(--font-b)">↩↩ Tous</button>
+          <button onclick="olForward('${m.id}')" style="background:rgba(255,255,255,.15);color:white;border:none;border-radius:4px;padding:5px 10px;font-size:12px;cursor:pointer;font-family:var(--font-b);font-weight:700">↪ Transférer</button>
+          <button onclick="olAction('Archivé 📁')" style="background:rgba(255,255,255,.1);color:white;border:none;border-radius:4px;padding:5px 8px;font-size:11px;cursor:pointer;font-family:var(--font-b)">📁</button>
+          <button onclick="olAction('Supprimé 🗑️')" style="background:rgba(255,60,60,.3);color:white;border:none;border-radius:4px;padding:5px 8px;font-size:11px;cursor:pointer;font-family:var(--font-b)">🗑️</button>
+        </div>
+      </div>
+      <div style="flex:1;overflow-y:auto;background:white;display:flex;flex-direction:column">
+        <!-- Titre -->
+        <div style="padding:14px 16px 10px;border-bottom:1px solid #edebe9">
+          <div style="font-size:18px;font-weight:800;color:#323130;margin-bottom:10px">${m.subject}</div>
+          <!-- Expéditeur -->
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+            <div style="width:38px;height:38px;border-radius:50%;background:${m.avatarBg};display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:white;flex-shrink:0">${m.avatar}</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14px;font-weight:700;color:#323130">${m.sender}</div>
+              <div style="font-size:12px;color:#605e5c">&lt;${m.email}&gt;</div>
+            </div>
+            <div style="font-size:12px;color:#a19f9d;text-align:right">${m.time}</div>
+          </div>
+          <div style="font-size:12px;color:#a19f9d">À : moi &lt;monprenom.dupont@outlook.fr&gt;</div>
+        </div>
+        <!-- Annotation -->
+        <div class="ol-annot">👤 Nom + &lt;adresse email&gt; de l'expéditeur toujours visibles ici</div>
+        <!-- Corps -->
+        <div style="padding:14px 16px;font-size:14px;line-height:1.7;color:#323130;flex:1;white-space:pre-line">${m.body}</div>
+        <!-- PJ -->
+        ${m.attachment?`
+        <div style="margin:0 16px 14px;border:1px solid #edebe9;border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;background:#f8f9fa" onclick="olAction('Téléchargement : ${m.attachment} ✓')">
+          <span style="font-size:24px">${m.attachment.endsWith('.pdf')?'📋':'🖼️'}</span>
+          <div><div style="font-size:13px;font-weight:700;color:#323130">${m.attachment}</div><div style="font-size:11px;color:#605e5c">Cliquez pour télécharger la pièce jointe</div></div>
+          <span style="margin-left:auto;color:#0078d4;font-size:16px">⬇️</span>
+        </div>`:''}
+      </div>`;
+  };
+
+  window.olGoInbox = () => {
+    const root=document.getElementById('outlook-pc-root');
+    if(root) root.innerHTML=olBuildInbox();
+  };
+
+  window.olAction = (msg) => {
+    const t=document.createElement('div');
+    t.style.cssText='position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:rgba(0,120,212,.9);color:white;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;z-index:9999;pointer-events:none';
+    t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2000);
+  };
+
+  window.olReply = (id) => {
+    const m=OL_MAILS.find(x=>x.id===id);
+    const root=document.getElementById('outlook-pc-root');
+    if(!root||!m) return;
+    root.innerHTML=`
+      <div class="outlook-compose-topbar">
+        <span style="color:white;font-size:13px;font-weight:700">↩ Répondre à ${m.sender}</span>
+        <button style="background:transparent;border:none;color:white;font-size:16px;cursor:pointer;margin-left:auto" onclick="olOpenMail('${id}')">✕</button>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;background:white;overflow-y:auto">
+        <div class="ol-annot">↩ Votre réponse ira directement à <strong>${m.sender}</strong> &lt;${m.email}&gt;</div>
+        <div class="outlook-compose-field"><span class="outlook-compose-lbl">À :</span><span style="font-size:14px;color:#323130;font-weight:600">${m.sender} &lt;${m.email}&gt;</span></div>
+        <div class="outlook-compose-field"><span class="outlook-compose-lbl">Objet :</span><span style="font-size:14px;color:#323130">Re: ${m.subject}</span></div>
+        <div style="flex:1;padding:12px 16px;font-size:14px;color:#aaa;font-style:italic">Écrivez votre réponse ici…</div>
+        <div style="border-top:2px dashed #edebe9;padding:12px 16px;background:#f8f9fa">
+          <div style="font-size:11px;color:#a19f9d;margin-bottom:4px">— Message original —</div>
+          <div style="font-size:12px;color:#605e5c;line-height:1.5;white-space:pre-line">${m.body.slice(0,100)}…</div>
+        </div>
+      </div>
+      <div class="outlook-compose-footer">
+        <button class="outlook-send-btn" onclick="olAction('Réponse envoyée ✓');olGoInbox()">📤 Envoyer</button>
+        <button style="padding:7px 14px;background:#f0f0f0;color:#605e5c;border:none;border-radius:4px;font-family:var(--font-b);font-size:12px;cursor:pointer" onclick="olOpenMail('${id}')">Annuler</button>
+        <div class="outlook-toolbar"><span title="Joindre" style="cursor:pointer" onclick="olAction('Joindre : choisissez un fichier')">📎</span><span style="font-weight:700;cursor:pointer">B</span><span style="font-style:italic;cursor:pointer">I</span></div>
+      </div>`;
+  };
+
+  window.olForward = (id) => {
+    const m=OL_MAILS.find(x=>x.id===id);
+    const root=document.getElementById('outlook-pc-root');
+    if(!root||!m) return;
+    root.innerHTML=`
+      <div class="outlook-compose-topbar">
+        <span style="color:white;font-size:13px;font-weight:700">↪ Transférer un email</span>
+        <button style="background:transparent;border:none;color:white;font-size:16px;cursor:pointer;margin-left:auto" onclick="olOpenMail('${id}')">✕</button>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;background:white;overflow-y:auto">
+        <div class="ol-annot">↪ Vous transmettez cet email à une autre personne</div>
+        <div class="outlook-compose-field"><span class="outlook-compose-lbl">À :</span><input class="outlook-compose-inp" placeholder="adresse@exemple.fr — entrez le destinataire"/></div>
+        <div class="outlook-compose-field"><span class="outlook-compose-lbl">Objet :</span><span style="font-size:14px;color:#323130">Tr: ${m.subject}</span></div>
+        <div style="padding:10px 16px;font-size:12px;color:#aaa;font-style:italic;border-bottom:1px solid #edebe9">Ajoutez un mot (facultatif)…</div>
+        <div style="padding:12px 16px;background:#f8f9fa;flex:1">
+          <div style="font-size:11px;color:#a19f9d;margin-bottom:6px">— Message transféré de ${m.sender} —</div>
+          <div style="font-size:12px;color:#605e5c;line-height:1.5;white-space:pre-line">${m.body.slice(0,140)}…</div>
+        </div>
+      </div>
+      <div class="outlook-compose-footer">
+        <button class="outlook-send-btn" onclick="olAction('Email transféré ✓');olGoInbox()">📤 Envoyer</button>
+        <button style="padding:7px 14px;background:#f0f0f0;color:#605e5c;border:none;border-radius:4px;font-family:var(--font-b);font-size:12px;cursor:pointer" onclick="olOpenMail('${id}')">Annuler</button>
+      </div>`;
+  };
+
+  window.olCompose = () => {
+    const root=document.getElementById('outlook-pc-root');
+    if(!root) return;
+    root.innerHTML=`
+      <div class="outlook-compose-topbar">
+        <span style="color:white;font-size:13px;font-weight:700">✏️ Nouveau message</span>
+        <button style="background:transparent;border:none;color:white;font-size:16px;cursor:pointer;margin-left:auto" onclick="olGoInbox()">✕ Annuler</button>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;background:white;overflow-y:auto">
+        <div class="ol-annot">① Destinataire  ② Objet (titre)  ③ Message  ④ Envoyer</div>
+        <div class="outlook-compose-field">
+          <span class="outlook-compose-lbl" style="color:#0078d4;font-weight:700">① À :</span>
+          <input class="outlook-compose-inp" placeholder="adresse@exemple.fr" value="mairie@lyon.fr"/>
+        </div>
+        <div class="outlook-compose-field">
+          <span class="outlook-compose-lbl" style="color:#0078d4;font-weight:700">② Objet :</span>
+          <input class="outlook-compose-inp" placeholder="Titre de votre email…" value="Demande de rendez-vous"/>
+        </div>
+        <div style="flex:1;padding:14px 16px;font-size:14px;color:#323130;line-height:1.7">
+          <div style="color:#a19f9d;font-style:italic;margin-bottom:8px">③ Message — tapez votre texte ici</div>
+          Bonjour,<br><br>
+          Je souhaite prendre rendez-vous pour une démarche administrative.<br><br>
+          Seriez-vous disponible la semaine prochaine ?<br><br>
+          Cordialement,<br>Mme Dupont
+        </div>
+      </div>
+      <div class="outlook-compose-footer">
+        <button class="outlook-send-btn" onclick="olAction('④ Email envoyé ✓ — Visible dans : Éléments envoyés');olGoInbox()">📤 ④ Envoyer</button>
+        <div class="outlook-toolbar">
+          <span title="Joindre un fichier" style="cursor:pointer" onclick="olAction('📎 Joindre : choisissez un fichier depuis votre ordinateur')">📎</span>
+          <span style="font-weight:800;cursor:pointer;font-size:14px" title="Gras">B</span>
+          <span style="font-style:italic;cursor:pointer;font-size:14px" title="Italique">I</span>
+          <span style="text-decoration:underline;cursor:pointer;font-size:14px" title="Souligné">U</span>
+        </div>
+      </div>`;
+  };
+
+  ui.innerHTML = olBuildInbox();
+  si.appendChild(ui);lid.appendChild(si);pc.appendChild(lid);
+  const base=document.createElement('div');base.className='pc-base';base.style.cssText=`width:${W+4}px;height:16px;background:#3a3a3a;border-color:#444`;
+  pc.appendChild(base);wrap.appendChild(pc);
+  const lbl=document.createElement('div');lbl.className='sim-label';lbl.style.color='#4A9EE0';lbl.textContent='Outlook (PC Windows)';wrap.appendChild(lbl);
+  return wrap;
+}
+
+function buildVideoPhone() {
+  const PH=600,PW=295,B=14,SH=PH-B*2,SW=PW-B*2;
+  const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+  const shell=document.createElement('div');shell.className='phone-shell';shell.style.cssText=`width:${PW}px;height:${PH}px;border-radius:46px`;
+  const di=document.createElement('div');di.className='dyn-island';di.style.cssText=`width:110px;height:26px;top:14px`;shell.appendChild(di);
+  const hb=document.createElement('div');hb.className='home-bar-s';hb.style.cssText=`width:100px;height:5px;bottom:8px`;shell.appendChild(hb);
+  const screen=document.createElement('div');screen.className='phone-screen';screen.style.cssText=`top:${B}px;left:${B}px;width:${SW}px;height:${SH}px;border-radius:34px`;
+
+  let micOn=true,camOn=true,timer=0;
+  const ui=document.createElement('div');ui.className='video-ui';
+  const timerEl=()=>document.getElementById('vc-timer');
+
+  ui.innerHTML=`
+    <div class="video-remote">
+      <div class="video-topbar">
+        <div class="video-duration" id="vc-timer">00:12</div>
+        <div class="video-enc">🔒 Chiffré</div>
+      </div>
+      <div class="video-remote-avatar">👩</div>
+      <div class="video-remote-name">Marie — votre fille</div>
+      <div class="video-remote-status">📹 Appel vidéo en cours</div>
+      <div class="video-self-preview">😊</div>
+      <div class="video-annot-wrap">
+        <div class="video-annot" id="vc-annot1">🎤 Tapez pour couper/activer le micro</div>
+      </div>
+    </div>
+    <div class="video-controls">
+      <div class="vc-btn" onclick="toggleMic(this)">
+        <div class="vc-icon gray" id="vc-mic">🎤</div>
+        <div class="vc-lbl">Micro</div>
+      </div>
+      <div class="vc-btn" onclick="toggleCam(this)">
+        <div class="vc-icon gray" id="vc-cam">📷</div>
+        <div class="vc-lbl">Caméra</div>
+      </div>
+      <div class="vc-btn">
+        <div class="vc-icon gray" onclick="showHint('Caméra retournée — vous montrez la pièce !')">🔄</div>
+        <div class="vc-lbl">Retourner</div>
+      </div>
+      <div class="vc-btn">
+        <div class="vc-icon red" onclick="alert('Appel terminé. À bientôt !')">📵</div>
+        <div class="vc-lbl">Raccrocher</div>
+      </div>
+    </div>`;
+
+  // Timer
+  const interval=setInterval(()=>{
+    timer++;
+    const m=String(Math.floor(timer/60)).padStart(2,'0');
+    const s=String(timer%60).padStart(2,'0');
+    const el=ui.querySelector('#vc-timer');
+    if(el)el.textContent=`${m}:${s}`;
+  },1000);
+  ui._interval=interval;
+
+  screen.appendChild(ui);shell.appendChild(screen);wrap.appendChild(shell);
+  const lbl=document.createElement('div');lbl.className='sim-label';lbl.style.color='#E74C3C';lbl.textContent='Appel vidéo WhatsApp';wrap.appendChild(lbl);
+  return wrap;
+}
+
+function buildMeetPC() {
+  const W=440,H=320;
+  const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+  const pc=document.createElement('div');pc.className='pc-shell';
+  const lid=document.createElement('div');lid.className='pc-lid';lid.style.cssText=`width:${W}px;background:#2a2a2a;border-color:#444`;
+  const si=document.createElement('div');si.className='pc-screen-inner';si.style.cssText=`width:${W}px;height:${H}px`;
+
+  si.innerHTML=`
+    <div style="display:flex;flex-direction:column;height:100%;background:#1f1f1f;font-family:var(--font-b)">
+      <div style="background:#202124;padding:6px 8px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:14px">📹</span>
+          <span style="color:white;font-size:11px;font-weight:700">Google Meet</span>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:4px;padding:2px 7px;font-size:10px;color:rgba(255,255,255,.7)">00:24</div>
+      </div>
+      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:6px;background:#1f1f1f">
+        <div style="background:linear-gradient(135deg,#3d3d5c,#2a2a40);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-size:16px">👩</div>
+          <div style="color:rgba(255,255,255,.8);font-size:9px;font-weight:600">Marie</div>
+          <div style="position:absolute;bottom:5px;right:5px;font-size:10px">🎤</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#1a3a6b,#0d2040);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;border:2px solid rgba(255,255,255,.3)">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#2ECC71,#1a8a4a);display:flex;align-items:center;justify-content:center;font-size:16px">😊</div>
+          <div style="color:rgba(255,255,255,.8);font-size:9px;font-weight:600">Vous</div>
+          <div style="position:absolute;bottom:5px;right:5px;font-size:10px">🎤</div>
+        </div>
+        <div style="background:#2d2d2d;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+          <div style="width:28px;height:28px;border-radius:50%;background:#555;display:flex;align-items:center;justify-content:center;font-size:14px">👦</div>
+          <div style="color:rgba(255,255,255,.6);font-size:9px">Pierre</div>
+        </div>
+        <div style="background:#2d2d2d;border-radius:8px;display:flex;align-items:center;justify-content:center">
+          <div style="color:rgba(255,255,255,.3);font-size:9px">+2 participants</div>
+        </div>
+      </div>
+      <div style="background:#202124;padding:7px 8px;display:flex;justify-content:space-around;align-items:center;flex-shrink:0">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer" onclick="this.querySelector('div').style.background=this.querySelector('div').style.background?'':'rgba(255,255,255,.25)'">
+          <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .15s">🎤</div>
+          <span style="font-size:8px;color:rgba(255,255,255,.6)">Micro</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer">
+          <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px">📷</div>
+          <span style="font-size:8px;color:rgba(255,255,255,.6)">Caméra</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer">
+          <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:13px">💬</div>
+          <span style="font-size:8px;color:rgba(255,255,255,.6)">Chat</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer" onclick="alert('Appel terminé.')">
+          <div style="width:28px;height:28px;border-radius:50%;background:#E74C3C;display:flex;align-items:center;justify-content:center;font-size:13px">📵</div>
+          <span style="font-size:8px;color:rgba(255,255,255,.6)">Quitter</span>
+        </div>
+      </div>
+    </div>`;
+  lid.appendChild(si);pc.appendChild(lid);
+  const base=document.createElement('div');base.className='pc-base';base.style.cssText=`width:${W+4}px;height:16px;background:#3a3a3a;border-color:#444`;
+  pc.appendChild(base);wrap.appendChild(pc);
+  const lbl=document.createElement('div');lbl.className='sim-label';lbl.style.color='#E74C3C';lbl.textContent='Google Meet (PC)';wrap.appendChild(lbl);
+  return wrap;
+}
+
+function showHint(msg){
+  let h=document.getElementById('sim-hint');
+  if(!h){h=document.createElement('div');h.id='sim-hint';h.style.cssText='position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(26,62,107,.95);color:white;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:700;z-index:999;transition:opacity .25s;pointer-events:none';document.body.appendChild(h);}
+  h.textContent='👆 '+msg;h.style.opacity='1';clearTimeout(h._t);h._t=setTimeout(()=>h.style.opacity='0',2200);
+}
+
+let micOn=true,camOn=true;
+function toggleMic(el){
+  micOn=!micOn;
+  const ico=el.querySelector('.vc-icon');
+  ico.textContent=micOn?'🎤':'🔇';
+  ico.className='vc-icon '+(micOn?'gray':'off');
+  showHint(micOn?'Micro activé — on vous entend':'Micro coupé — personne ne vous entend');
+}
+function toggleCam(el){
+  camOn=!camOn;
+  const ico=el.querySelector('.vc-icon');
+  ico.textContent=camOn?'📷':'🚫';
+  ico.className='vc-icon '+(camOn?'gray':'off');
+  showHint(camOn?'Caméra activée — on vous voit':'Caméra coupée — on ne vous voit plus');
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER TOOL
+// ═══════════════════════════════════════════════════
 function showTool(idx){
-  currentTool = idx;
-  const t = TOOLS[idx];
+  currentTool=idx;
+  const t=TOOLS[idx];
 
-  // Header
-  document.getElementById('tool-header-title').textContent = `${t.ico} ${t.name}`;
+  document.getElementById('tool-header-title').textContent=`${t.ico} ${t.name}`;
 
-  // Nav buttons
-  const nav = document.getElementById('tool-nav-btns');
-  nav.innerHTML = '';
+  const nav=document.getElementById('tool-nav-btns');
+  nav.innerHTML='';
   TOOLS.forEach((tt,i)=>{
-    const b = document.createElement('button');
-    b.className = 'tnb' + (i===idx?' active':'');
-    b.textContent = tt.ico;
-    b.style.borderColor = i===idx ? tt.color : '';
-    b.style.background = i===idx ? tt.color+'22' : '';
-    b.onclick = () => showTool(i);
+    const b=document.createElement('button');
+    b.className='tnb'+(i===idx?' active':'');
+    b.textContent=tt.ico;
+    b.style.borderColor=i===idx?tt.color:'';
+    b.style.background=i===idx?tt.color+'22':'';
+    b.onclick=()=>showTool(i);
     nav.appendChild(b);
   });
 
-  // Body
-  const body = document.getElementById('tool-body');
-  body.innerHTML = '';
-  body.scrollTop = 0;
+  const body=document.getElementById('tool-body');
+  body.innerHTML='';body.scrollTop=0;
 
   // Hero
-  const hero = document.createElement('div');
-  hero.className = 'hero-card';
-  hero.style.background = `linear-gradient(135deg, ${t.color}22, ${t.color}11)`;
-  hero.style.border = `1px solid ${t.color}44`;
-  hero.innerHTML = `
-    <div class="hero-ico">${t.ico}</div>
-    <div class="hero-info">
-      <div class="hero-name" style="color:${t.color}">${t.name}</div>
-      <div class="hero-tagline">${t.tagline}</div>
-      <div class="hero-devices">${t.devices.map(d=>`<span class="device-tag">${d}</span>`).join('')}</div>
-    </div>`;
+  const hero=document.createElement('div');
+  hero.className='hero-card';
+  hero.style.cssText=`background:linear-gradient(135deg,${t.color}22,${t.color}11);border:1px solid ${t.color}44`;
+  hero.innerHTML=`<div class="hero-ico">${t.ico}</div><div class="hero-info"><div class="hero-name" style="color:${t.color}">${t.name}</div><div class="hero-tagline">${t.tagline}</div><div class="hero-devices">${t.devices.map(d=>`<span class="device-tag">${d}</span>`).join('')}</div></div>`;
   body.appendChild(hero);
 
+  // Simulation (if any)
+  if(t.sim){
+    const simSec=document.createElement('div');simSec.className='sim-section';
+    const simTitle=document.createElement('div');simTitle.className='sim-section-title';
+    simTitle.innerHTML='📱 Simulation de l\'interface';
+    simSec.appendChild(simTitle);
+    const simOuter=document.createElement('div');simOuter.className='sim-outer';
+
+    if(t.sim==='sms'){
+      simOuter.appendChild(buildSmsPhone());
+    } else if(t.sim==='wa'){
+      simOuter.appendChild(buildWaPhone());
+    } else if(t.sim==='email'){
+      simOuter.appendChild(buildGmailPhone());
+      simOuter.appendChild(buildOutlookPC());
+    } else if(t.sim==='video'){
+      simOuter.appendChild(buildVideoPhone());
+      simOuter.appendChild(buildMeetPC());
+    }
+    simSec.appendChild(simOuter);
+    body.appendChild(simSec);
+    body.appendChild(document.createElement('br'));
+  }
+
   // Pro/con
-  const pcGrid = document.createElement('div');
-  pcGrid.innerHTML = `<div class="section-title">✅ Avantages &amp; ⚠️ Limites</div>`;
-  const grid = document.createElement('div');
-  grid.className = 'pro-con-grid';
-  grid.innerHTML = `
-    <div class="pro-col">
-      <div class="pc-title">✅ Points +</div>
-      ${t.pros.map(p=>`<div class="pc-item"><div class="pci-dot"></div><span>${p}</span></div>`).join('')}
-    </div>
-    <div class="con-col">
-      <div class="pc-title">⚠️ Points −</div>
-      ${t.cons.map(c=>`<div class="pc-item"><div class="pci-dot"></div><span>${c}</span></div>`).join('')}
-    </div>`;
-  body.appendChild(pcGrid);
+  const pcTitle=document.createElement('div');pcTitle.className='section-title';pcTitle.innerHTML='✅ Avantages &amp; ⚠️ Limites';
+  body.appendChild(pcTitle);
+  const grid=document.createElement('div');grid.className='pro-con-grid';
+  grid.innerHTML=`<div class="pro-col"><div class="pc-title">✅ Points +</div>${t.pros.map(p=>`<div class="pc-item"><div class="pci-dot"></div><span>${p}</span></div>`).join('')}</div><div class="con-col"><div class="pc-title">⚠️ Points −</div>${t.cons.map(c=>`<div class="pc-item"><div class="pci-dot"></div><span>${c}</span></div>`).join('')}</div>`;
   body.appendChild(grid);
 
   // Use cases
-  const ucTitle = document.createElement('div');
-  ucTitle.className = 'section-title';
-  ucTitle.style.marginTop = '14px';
-  ucTitle.innerHTML = '🎯 Quand l\'utiliser ?';
+  const ucTitle=document.createElement('div');ucTitle.className='section-title';ucTitle.style.marginTop='6px';ucTitle.innerHTML='🎯 Quand l\'utiliser ?';
   body.appendChild(ucTitle);
-
-  const ucs = document.createElement('div');
-  ucs.className = 'use-cases';
-  ucs.innerHTML = t.usecases.map(u=>`
-    <div class="use-case">
-      <div class="uc-ico">${u.ico}</div>
-      <div class="uc-text"><div class="uc-title">${u.title}</div><div class="uc-desc">${u.desc}</div></div>
-    </div>`).join('');
+  const ucs=document.createElement('div');ucs.className='use-cases';
+  ucs.innerHTML=t.usecases.map(u=>`<div class="use-case"><div class="uc-ico">${u.ico}</div><div class="uc-text"><div class="uc-title">${u.title}</div><div class="uc-desc">${u.desc}</div></div></div>`).join('');
   body.appendChild(ucs);
 
   // Tip
-  const tip = document.createElement('div');
-  tip.className = 'tip-box';
-  tip.innerHTML = t.tip;
+  const tip=document.createElement('div');tip.className='tip-box';tip.innerHTML=t.tip;
   body.appendChild(tip);
 
   showScreen('s-tool');
 }
 
+// ═══════════════════════════════════════════════════
+// COMPARE
+// ═══════════════════════════════════════════════════
 function renderCompare(){
-  const tbody = document.getElementById('compare-tbody');
-  tbody.innerHTML = '';
+  const tbody=document.getElementById('compare-tbody');tbody.innerHTML='';
   TOOLS.forEach(t=>{
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><div class="ct-tool"><span class="ct-ico">${t.ico}</span><span style="color:${t.color}">${t.name}</span></div></td>
-      <td style="color:rgba(237,242,247,.85)">${t.compareIdeal}</td>
-      <td class="ct-plus">${t.comparePlus}</td>
-      <td class="ct-minus">${t.compareMoins}</td>
-      <td><div class="ct-devices">${t.compareDevices.map(d=>`<span class="ct-tag">${d}</span>`).join('')}</div></td>`;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><div class="ct-tool"><span class="ct-ico">${t.ico}</span><span style="color:${t.color}">${t.name}</span></div></td><td style="color:rgba(237,242,247,.85)">${t.compareIdeal}</td><td class="ct-plus">${t.comparePlus}</td><td class="ct-minus">${t.compareMoins}</td><td><div class="ct-devices">${t.compareDevices.map(d=>`<span class="ct-tag">${d}</span>`).join('')}</div></td>`;
     tbody.appendChild(tr);
   });
 }
 
-// Build tool nav on menu
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
 (function initMenu(){
-  const nav = document.getElementById('tool-nav');
+  const nav=document.getElementById('tool-nav');
   TOOLS.forEach((t,i)=>{
-    const btn = document.createElement('button');
-    btn.className = 'tool-btn';
-    btn.style.borderColor = t.color+'44';
-    btn.innerHTML = `<span class="tb-ico">${t.ico}</span><span>${t.name}</span>`;
-    btn.onclick = () => showTool(i);
+    const btn=document.createElement('button');btn.className='tool-btn';
+    btn.style.borderColor=t.color+'44';
+    btn.innerHTML=`<span class="tb-ico">${t.ico}</span><span>${t.name}</span>`;
+    btn.onclick=()=>showTool(i);
     nav.appendChild(btn);
   });
 })();
